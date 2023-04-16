@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { View,Text,StyleSheet} from 'react-native';
+import styles from './stylesCenter'
 import MapView from 'react-native-maps';
+import DownBar from '../DownNavBar/NavOptions';
 export default function NearbyCenters(){
     const[origin,setOrigin]=useState({
       latitud:  -31.603722,
@@ -8,7 +10,7 @@ export default function NearbyCenters(){
     })
     return(
         <View style={styles.container}>
-        <MapView style={styles.map} 
+        <MapView style={styles.mapContainer} 
         initialRegion={{
             latitude:origin.latitud,
             longitude:origin.longitud,
@@ -17,17 +19,9 @@ export default function NearbyCenters(){
         }}
         
         />
+        <DownBar/>
       </View>
     )
 }
 
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-    },
-    map: {
-      width: '100%',
-      height: '100%',
-    },
-  });

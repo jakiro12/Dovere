@@ -8,6 +8,7 @@ import OpenQrReader from '../components/QrScanner/CheckQr';
 import SeeMyOptions from '../components/GiftAndDonate/SeeOptionsAviable';
 import { NewStates } from '../components/Provider/ProviderStatus';
 import NearbyCenters from '../components/CentersMap/SeeCenters';
+import RedeemPointsForGift from '../components/GiftAndDonate/GiftRedeem/GetGift';
 
 function HomeScreen({navigation}) {
     return (
@@ -33,6 +34,7 @@ function HomeScreen({navigation}) {
           <Stack.Screen name='Open_Qr_Reader' component={OpenQrReader}/>
           <Stack.Screen name='Redeem_Or_Donate' component={SeeMyOptions} />
           <Stack.Screen name='See_centers' component={NearbyCenters} />
+          <Stack.Screen name='Redeem_gift' component={RedeemPointsForGift}/>
         </Stack.Navigator>
       </NavigationContainer>
       </NewStates>
