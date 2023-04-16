@@ -17,10 +17,10 @@ export default function DownBar(){
            <Image source={require('../imagesDisplayed/Qr.png')} resizeMode='contain'  style={style.vectorColor}/>
 
            </TouchableOpacity>
-           <View style={style.butonNavigate}>
-           <Image source={require('../imagesDisplayed/Ping.png')} resizeMode='contain'  style={style.vectorColor}/>
+           <TouchableOpacity style={style.butonNavigate} onPress={()=>navigation.navigate('See_centers')} >
+           <Image source={require('../imagesDisplayed/Ping.png')}  resizeMode='contain'  style={style.vectorColor}/>
 
-           </View>
+           </TouchableOpacity>
            <View style={style.butonNavigate}>
            <Image source={require('../imagesDisplayed/Book.png')} resizeMode='contain'  style={style.vectorColor}/>
            </View>
