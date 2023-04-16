@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+
+
 export default createTicketsGiftAndDonate=StyleSheet.create({
     container:{
         width:'100%',
@@ -21,8 +23,6 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
     appName:{
         width:'60%',
         fontSize:22,
-        borderColor:'#ffffff',
-        borderWidth:1,
         display:'flex',
         textAlign:'right'
     }, logoProfile:{
@@ -86,12 +86,11 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
     btnOptions:{
         width:'80%',
         height:'20%',
-        borderColor:'#000000',
-        borderWidth:2,
         display:'flex',
         flexDirection:'row',
         alignItems:'center',
-        justifyContent:'space-around'
+        justifyContent:'space-around',
+        overflow:'hidden'
     },
     scrollOptions:{
         width:'100%',
@@ -109,13 +108,24 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         marginVertical:10,
         borderRadius:10,
     },
-    btnDisplayed:{
-        width:'45%',
+    btnDisplayedRedeemm:{
+        width:'35%',
         height:'60%',
         borderBottomColor:'#000000',
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
+        borderBottomWidth:1
+    },
+    btnDisplayedGift:{
+        width:'35%',
+        height:'60%',
+        borderBottomColor:'#000000',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        transform: [{scale: 2}],
+        borderBottomWidth:1
     },
     ticketLogo:{
         width:'40%',

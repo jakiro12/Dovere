@@ -6,7 +6,7 @@ export default function ActualPointsAndProgress ({navigation}){
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
             <View style={styles.navBar}>
-              <Text style={styles.appName}>AppName</Text>
+              <Text style={styles.appName}>Dovere</Text>
                 <TouchableOpacity style={styles.logoProfile} onPress={()=>{navigation.navigate('See_set_profile')}}>
                     <Text>A</Text>
                 </TouchableOpacity>

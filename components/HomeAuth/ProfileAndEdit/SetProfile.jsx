@@ -6,7 +6,7 @@ export default function SetAndEditUserProfile(){
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
             <View style={styles.navBar}>
-              <Text style={styles.appName}>AppName</Text>
+              <Text style={styles.appName}>Dovere</Text>
                 <View style={styles.logoProfile} >
                     <Text>A</Text>
                 </View>

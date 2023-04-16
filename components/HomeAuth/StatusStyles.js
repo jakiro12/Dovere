@@ -21,8 +21,6 @@ export default actualValues=StyleSheet.create({
     appName:{
         width:'60%',
         fontSize:22,
-        borderColor:'#ffffff',
-        borderWidth:1,
         display:'flex',
         textAlign:'right'
     },

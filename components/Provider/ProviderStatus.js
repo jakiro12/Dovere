@@ -3,9 +3,13 @@ import React,{useState} from "react";
 const AppCounter=React.createContext()
 
 export const NewStates=({children})=>{
-    const[count,setCount]=useState('hola')
+    
+    const[redeem,setRedeem]=useState({
+        redeemDefault:true,
+    })
+
     return(
-        <AppCounter.Provider value={{count,setCount}}>
+        <AppCounter.Provider value={{redeem,setRedeem}}>
             {children}
         </AppCounter.Provider>
     )

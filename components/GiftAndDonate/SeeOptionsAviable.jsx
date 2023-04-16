@@ -5,13 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 import DownBar from '../DownNavBar/NavOptions';
 import AppCounter from '../Provider/ProviderStatus';
 export default function SeeMyOptions(){
-    const[redeem,setRedeem]=useState(true)
     const navigation=useNavigation()
-    const {count,setCount}=useContext(AppCounter)
+    const {redeem,setRedeem}=useContext(AppCounter)
     return(
         <View style={styles.container}>
             <View style={styles.navBar}>
-              <Text style={styles.appName}>AppName{count}</Text>
+              <Text style={styles.appName}>Dovere</Text>
                 <TouchableOpacity style={styles.logoProfile} onPress={()=>{navigation.navigate('See_set_profile')}}>
                     <Text>A</Text>
                 </TouchableOpacity>
@@ -30,13 +29,17 @@ export default function SeeMyOptions(){
             </View>
             <View style={styles.sliderContent}>
                 <View style={styles.btnOptions}>
-                  <TouchableOpacity style={styles.btnDisplayed} onPress={()=>setRedeem(true)} ><Text>{count}</Text></TouchableOpacity>
+                  <TouchableOpacity style={[styles.btnDisplayedRedeemm,{ transform: [{scale: redeem.redeemDefault === true ? 1.4 : 1}]}]} onPress={()=>setRedeem({
+        redeemDefault:true
+    })} ><Text>Canjear</Text></TouchableOpacity>
                     
-                  <TouchableOpacity style={styles.btnDisplayed} onPress={()=>setRedeem(false)}><Text>Donar</Text></TouchableOpacity>
+                  <TouchableOpacity style={[styles.btnDisplayedGift,{ transform: [{scale: redeem.redeemDefault === false ? 1.4 : 1}],}]} onPress={()=>setRedeem({
+        redeemDefault:false
+    })}><Text>Donar</Text></TouchableOpacity>
                     
                 </View>
                 <ScrollView style={styles.scrollOptions} showsVerticalScrollIndicator={false}>
-                   {redeem ?  <View style={styles.boxTicket}>
+                   {redeem.redeemDefault ?  <View style={styles.boxTicket}>
                         <View style={styles.ticketLogo}>
                             <Image source={require('../imagesDisplayed/ticket.png')} resizeMode='cover' />
                         </View>
