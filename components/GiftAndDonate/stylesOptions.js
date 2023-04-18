@@ -1,7 +1,5 @@
 import { StyleSheet } from "react-native";
 
-
-
 export default createTicketsGiftAndDonate=StyleSheet.create({
     container:{
         width:'100%',
@@ -25,7 +23,8 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         fontSize:22,
         display:'flex',
         textAlign:'right'
-    }, logoProfile:{
+    },
+    logoProfile:{
         width:35,
         height:35,
         borderRadius:35,
