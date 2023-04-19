@@ -1,4 +1,4 @@
-import {Text,TouchableOpacity,View,Modal} from 'react-native';
+import {Text,TouchableOpacity,View,Modal,Image} from 'react-native';
 import DownBar from '../../DownNavBar/NavOptions';
 import styles from './styleGift'
 import { useState } from 'react';
@@ -17,7 +17,7 @@ export default function RedeemPointsForGift(){
             <View style={styles.boxRedeemGift}>
                 <Text style={styles.textInit}>Estas por canjear una recarga en la tarjeta</Text>
                     <View style={styles.itemGiftLogo}>
-                        <Text>Logo</Text>
+                        <Image resizeMode='contain' style={styles.imageSize} source={require('../../imagesDisplayed/bus.png')}/>
                     </View>
                 <View style={styles.boxInfoGift}>
                     <Text>Estas a punto de canjear 1000 puntos por un equivalente a $100 
@@ -37,7 +37,7 @@ export default function RedeemPointsForGift(){
                     <Text style={styles.modalText}>
                         Has canjeado exitosamente nombre del producto
                     </Text>
-                    <TouchableOpacity style={styles.modalClose} onPress={()=>setShowModal(false)}>
+                    <TouchableOpacity style={styles.modalClose} onPress={()=>navigation.navigate('Redeem_Or_Donate')}>
                         <Text style={styles.fontModalClose}>Volver</Text>
                     </TouchableOpacity>
                 </View>

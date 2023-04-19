@@ -47,7 +47,7 @@ export default function SeeMyOptions(){
                             <Text>1 Pasaje</Text>
                             <Text>100 puntos</Text>
                             <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift')}>
-                            <Text>Canjear</Text>
+                            <Text>Ver</Text>
                             </TouchableOpacity>
                         </View>
                     </View> :
@@ -59,7 +59,7 @@ export default function SeeMyOptions(){
                         <Text>Fundacion</Text>
                         <Text>$100 (100pts)</Text>
                         <TouchableOpacity style={styles.redeemPoints}  onPress={()=>navigation.navigate('Give_points')}>
-                        <Text>Donar</Text>
+                        <Text>Ver</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

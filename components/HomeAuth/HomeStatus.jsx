@@ -29,8 +29,9 @@ export default function ActualPointsAndProgress ({navigation}){
                 <Text style={styles.fontProgress}>Estadisticas</Text>
                 <View style={styles.advancedStatus}>
                     <View style={styles.displayLevelStatus}>
-                        <Text style={styles.titleLevel}>Plástico</Text>
+                        <Text style={styles.titleLevel}>Botellas</Text>
                         <View  style={styles.circleLevel}>
+                            <Text>n°</Text>
                         </View>
                     </View>
                 </View>

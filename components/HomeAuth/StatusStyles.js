@@ -118,12 +118,15 @@ export default actualValues=StyleSheet.create({
         textAlign:'center',
     },
     circleLevel:{
-        width:65,
-        height:65,
+        width:75,
+        height:75,
         borderColor:'red',
         borderWidth:4,
         borderRadius:50,
-        margin:'auto'
+        margin:'auto',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
     },
     poinsText:{
         fontSize:20,

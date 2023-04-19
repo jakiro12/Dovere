@@ -45,7 +45,16 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         height:150,
         borderWidth:2,
         borderColor:'#000000',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:10,
+        overflow:'hidden'
     },
+    imageSize:{
+        width:'100%',
+    }
+    ,
     boxInfoGift:{
         width:'90%',
         height:'20%',
