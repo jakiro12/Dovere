@@ -70,5 +70,33 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
     },
     textInit:{
         fontSize:17
+    },
+    modalContainer:{
+        width:'80%',
+        height:'40%',
+        backgroundColor:'#DADD33',
+        alignSelf:'center',
+        marginTop:'50%',
+        display:'flex',
+        justifyContent:'space-around',
+        alignItems:'center',
+       
+    },
+    modalText:{
+        fontSize:22,
+        fontWeight:600, 
+        width:'90%',
+        textAlign:'center'
+    },
+    modalClose:{
+        width:'30%',
+        backgroundColor:'#6AC52D',
+        borderRadius:10,
+        
+    },
+    fontModalClose:{
+        fontSize:20,
+        textAlign:'center',
+        padding:'3%'
     }
 })

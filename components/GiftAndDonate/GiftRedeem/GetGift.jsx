@@ -2,7 +2,9 @@ import {Text,TouchableOpacity,View,Modal} from 'react-native';
 import DownBar from '../../DownNavBar/NavOptions';
 import styles from './styleGift'
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 export default function RedeemPointsForGift(){
+    const navigation=useNavigation()
     const[showModal,setShowModal]=useState(false)
     return(
         <View  style={styles.container}>
@@ -29,9 +31,15 @@ export default function RedeemPointsForGift(){
                 visible={showModal}
                 transparent={false}
                 onRequestClose={()=>setShowModal(false)}
+                
             >
-                <View style={{width:'90%',height:'60%',backgroundColor:'#4f4f4f',alignSelf:'center',marginTop:'30%'}}>
-
+                <View style={styles.modalContainer}>
+                    <Text style={styles.modalText}>
+                        Has canjeado exitosamente nombre del producto
+                    </Text>
+                    <TouchableOpacity style={styles.modalClose} onPress={()=>setShowModal(false)}>
+                        <Text style={styles.fontModalClose}>Volver</Text>
+                    </TouchableOpacity>
                 </View>
             </Modal>
             <DownBar/>
