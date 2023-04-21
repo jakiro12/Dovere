@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
-export default createTicketsGiftAndDonate=StyleSheet.create({
+export default GiveMyPoints=StyleSheet.create({
     container:{
         width:'100%',
         height:'100%',
@@ -52,6 +52,9 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         borderRadius:10,
         overflow:'hidden'
     },
+    textInit:{
+        fontSize:17
+    },
     imageSize:{
         width:'100%',
     },
@@ -77,35 +80,4 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         fontSize:22,
         fontWeight:600,
     },
-    textInit:{
-        fontSize:17
-    },
-    modalContainer:{
-        width:'80%',
-        height:'40%',
-        backgroundColor:'#DADD33',
-        alignSelf:'center',
-        marginTop:'50%',
-        display:'flex',
-        justifyContent:'space-around',
-        alignItems:'center',
-       
-    },
-    modalText:{
-        fontSize:22,
-        fontWeight:600, 
-        width:'90%',
-        textAlign:'center'
-    },
-    modalClose:{
-        width:'30%',
-        backgroundColor:'#6AC52D',
-        borderRadius:10,
-        
-    },
-    fontModalClose:{
-        fontSize:20,
-        textAlign:'center',
-        padding:'3%'
-    }
 })
