@@ -1,5 +1,5 @@
 import {View,Text,TouchableOpacity,ScrollView,Image} from 'react-native';
-import React,{ useContext, useState } from 'react';
+import React,{ useContext} from 'react';
 import styles from './stylesOptions';
 import { useNavigation } from '@react-navigation/native';
 import DownBar from '../DownNavBar/NavOptions';

@@ -12,7 +12,7 @@ export default function ActualPointsAndProgress ({navigation}){
                 </TouchableOpacity>
             </View>
             <View style={styles.statusAndPoints}>
-                <View style={styles.userWelcome}><Text style={styles.fontWelcomeUser}>Hola loco</Text></View>
+                <View style={styles.userWelcome}><Text style={styles.fontWelcomeUser}>Hola Usuario</Text></View>
                 <View style={styles.userStats}>
                     <View style={styles.pointContainer}>
                         <Text style={styles.poinsText}>Puntaje Acumulado</Text>

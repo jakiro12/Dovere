@@ -15,7 +15,6 @@ export default downBarStyles=StyleSheet.create({
     butonNavigate:{
         width:35,
         height:35,
-        backgroundColor:'#7e191b',
         borderRadius:35,
         justifyContent:'center',
         alignItems:'center'

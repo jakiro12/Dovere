@@ -2,7 +2,9 @@ import { View,Text,Image,TouchableOpacity,Modal } from 'react-native';
 import styles from './stylesDonate'
 import DownBar from '../../DownNavBar/NavOptions';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 export default function GiveMyPoints(){
+    const navigation=useNavigation()
     const[showModal,setShowModal]=useState(false)
     return(
         <View style={styles.container}>
@@ -30,7 +32,14 @@ export default function GiveMyPoints(){
             transparent={false}
             animationType='slide'
             >
-                <View><Text>Hola</Text></View>
+                 <View style={styles.modalContainer}>
+                    <Text style={styles.modalText}>
+                        Has donado exitosamente nombe de la ong
+                    </Text>
+                    <TouchableOpacity style={styles.modalClose} onPress={()=>navigation.navigate('Redeem_Or_Donate')}>
+                        <Text style={styles.fontModalClose}>Volver</Text>
+                    </TouchableOpacity>
+                </View>
             </Modal>
             <DownBar/>
         </View>

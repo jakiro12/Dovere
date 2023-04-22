@@ -1,23 +1,42 @@
 import { View,TouchableOpacity,Image } from "react-native";
 import style from './barStyles';
-import {useNavigation} from '@react-navigation/native'
+import {useNavigation} from '@react-navigation/native';
+import { useContext } from "react";
+import AppCounter from "../Provider/ProviderStatus";
 
 export default function DownBar(){
     const navigation=useNavigation()
+    const {activeBtn,setActiveBtn}=useContext(AppCounter)
+    const navigateToHome=(e)=>{  
+      setActiveBtn(e)
+      navigation.navigate('Home_login')
+    }
+    const navigateToRedeem=(e)=>{  
+      setActiveBtn(e)
+      navigation.navigate('Redeem_Or_Donate')
+    }
+    const navigateToQr=(e)=>{  
+      setActiveBtn(e)
+      navigation.navigate('Open_Qr_Reader')
+    }
+    const navigateToMap=(e)=>{  
+      setActiveBtn(e)
+      navigation.navigate('See_centers')
+    }
     return(
         <View style={style.container}>
-           <TouchableOpacity style={style.butonNavigate} onPress={()=>navigation.navigate('Home_login')}>
+           <TouchableOpacity style={[style.butonNavigate,{backgroundColor:activeBtn === 'home' ? '#6AC52D' : '#000000'}]} onPress={()=>navigateToHome('home')}>
              <Image source={require('../imagesDisplayed/House.png')} resizeMode='contain'  style={style.vectorColor}/>
            </TouchableOpacity>
-           <TouchableOpacity style={style.butonNavigate} onPress={()=>navigation.navigate('Redeem_Or_Donate')}>
+           <TouchableOpacity style={[style.butonNavigate,{backgroundColor:activeBtn === 'redeem' ? '#6AC52D' : '#000000'}]} onPress={()=>navigateToRedeem('redeem')}>
            <Image source={require('../imagesDisplayed/Gift.png')} resizeMode='contain'  style={style.vectorColor}/>
 
            </TouchableOpacity>
-           <TouchableOpacity style={style.butonNavigate} onPress={()=>navigation.navigate('Open_Qr_Reader')}>
+           <TouchableOpacity style={[style.butonNavigate,{backgroundColor:activeBtn === 'openQr' ? '#6AC52D' : '#000000'}]} onPress={()=>navigateToQr('openQr')}>
            <Image source={require('../imagesDisplayed/Qr.png')} resizeMode='contain'  style={style.vectorColor}/>
 
            </TouchableOpacity>
-           <TouchableOpacity style={style.butonNavigate} onPress={()=>navigation.navigate('See_centers')} >
+           <TouchableOpacity style={[style.butonNavigate,{backgroundColor:activeBtn === 'maps' ? '#6AC52D' : '#000000'}]} onPress={()=>navigateToMap('maps')} >
            <Image source={require('../imagesDisplayed/Ping.png')}  resizeMode='contain'  style={style.vectorColor}/>
 
            </TouchableOpacity>
