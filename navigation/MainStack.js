@@ -10,6 +10,7 @@ import { NewStates } from '../components/Provider/ProviderStatus';
 import NearbyCenters from '../components/CentersMap/SeeCenters';
 import RedeemPointsForGift from '../components/GiftAndDonate/GiftRedeem/GetGift';
 import GiveMyPoints from '../components/GiftAndDonate/DonateRedeem/GiveDonate';
+import AksAndAwser from '../components/Questions/CommonQuestions';
 
 function HomeScreen({navigation}) {
     return (
@@ -37,6 +38,7 @@ function HomeScreen({navigation}) {
           <Stack.Screen name='See_centers' component={NearbyCenters} />
           <Stack.Screen name='Redeem_gift' component={RedeemPointsForGift}/>
           <Stack.Screen name='Give_points' component={GiveMyPoints}/>
+          <Stack.Screen name='Faq' component={AksAndAwser} />
         </Stack.Navigator>
       </NavigationContainer>
       </NewStates>
