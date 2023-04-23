@@ -41,6 +41,7 @@ export default QuestionStyles=StyleSheet.create({
         borderColor:'#000000',
         display:'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        
     }
 })
