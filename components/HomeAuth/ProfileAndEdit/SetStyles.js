@@ -98,7 +98,8 @@ export default editProfileStyles=StyleSheet.create({
         borderBottomWidth:2,
         display:'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        flexDirection:'row'
     },
     fontTitle:{
         fontSize:20,
