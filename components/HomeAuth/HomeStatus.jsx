@@ -31,7 +31,7 @@ export default function ActualPointsAndProgress ({navigation}){
                     <View style={styles.displayLevelStatus}>
                         <Text style={styles.titleLevel}>Botellas</Text>
                         <View  style={styles.circleLevel}>
-                            <Text>n°</Text>
+                            <Text>107</Text>
                         </View>
                     </View>
                 </View>

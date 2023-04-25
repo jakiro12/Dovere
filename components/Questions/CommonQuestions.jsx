@@ -1,10 +1,16 @@
-import {Text,View,TouchableOpacity} from 'react-native';
+import {Text,View,TouchableOpacity,Animated} from 'react-native';
 import DownBar from '../DownNavBar/NavOptions';
 import styles from './stylesAks';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import HowUseIt from './Information/StepOne';
+import HowToWin from './Information/WinPoints';
+import HowToUpgrade from './Information/LevelsAndMore';
+import WhenCanI from './Information/RedeemTime';
 export default function AksAndAwser(){
+
     const[test,setTest]=useState('')
+    
     const navigation = useNavigation()
     const openAndCloseFirst=(e)=>{
         if(e === test){
@@ -43,27 +49,26 @@ export default function AksAndAwser(){
                     <Text>A</Text>
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'a' || test === '' ? 'flex' : 'none'}]} >
-                <TouchableOpacity onPress={()=>openAndCloseFirst('a')}>
-                <Text>Como se utiliza la app</Text>
+            <View style={[styles.boxQuestion,{display:test === 'a' || test === '' ? 'flex' : 'none'},{height:test === 'a' ? '70%' : '15%'}]} >
+                <TouchableOpacity onPress={()=>openAndCloseFirst('a')} style={styles.btnText}>
+                  {test === 'a' ? <HowUseIt/> : <Text style={{fontSize:24}}>Como usar la app</Text> }
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'b' || test === '' ? 'flex' : 'none'}]}>
-                <TouchableOpacity onPress={()=>openAndCloseSecond('b')}>
-                <Text>Como ganar puntos</Text>
+            <View style={[styles.boxQuestion,{display:test === 'b' || test === '' ? 'flex' : 'none'},{height:test === 'b' ? '70%' : '15%'}]}>
+                <TouchableOpacity onPress={()=>openAndCloseSecond('b')} style={styles.btnText}>
+                  { test === 'b' ? <HowToWin/> : <Text  style={{fontSize:24}}>Como ganar puntos</Text>}
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'c' || test === '' ? 'flex' : 'none'}]}>
+            <View style={[styles.boxQuestion,{display:test === 'c' || test === '' ? 'flex' : 'none'},{height:test === 'c' ? '70%' : '15%'}]}>
                <TouchableOpacity onPress={()=>openAndCloseThird('c')}>
-                <Text>Cuantos niveles y beneficios existen?</Text>
+               { test === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24}}>Niveles disponibles</Text>}
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'd' || test === '' ? 'flex' : 'none'}]}>
+            <View style={[styles.boxQuestion,{display:test === 'd' || test === '' ? 'flex' : 'none'},{height:test === 'd' ? '70%' : '15%'}]}>
             <TouchableOpacity onPress={()=>openAndCloseFourth('d')}>
-                <Text>Cuanto tiempo demora en llegar mi canje u donacion</Text>
+            { test === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24}}>Cuando llega mi canje</Text>}
                 </TouchableOpacity>
             </View>
-
                 <DownBar/>
             </View>
     )
