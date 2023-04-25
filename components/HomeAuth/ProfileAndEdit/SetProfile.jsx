@@ -1,7 +1,13 @@
-import {View,Text,StatusBar,Image,ScrollView,TouchableOpacity} from 'react-native';
+import {View,Text,StatusBar,Image,ScrollView,TouchableOpacity,Dimensions} from 'react-native';
 import styles from './SetStyles'
 import DownBar from '../../DownNavBar/NavOptions';
+import { useRef } from 'react';
 export default function SetAndEditUserProfile(){
+    const scrollSignal=useRef(null)
+    const seeSomething=()=>{
+        const {width}=Dimensions.get('window')
+        return width
+    }
     return(
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
@@ -17,11 +23,17 @@ export default function SetAndEditUserProfile(){
         }} /></View>
                 <View style={styles.nameUserDisplay}>
                     <Text style={styles.levelName}>Jacaranda</Text>
+                    <View style={styles.nameAndEdit}>   
                     <Text style={styles.fullName}>Nombre completo</Text>
+                    <Image source={require('../../imagesDisplayed/Pencil.jpg')} style={styles.editLogo} resizeMode='cover'/>
+                    </View>
                     </View>
             </View>
             <View style={styles.sliderContent}>
-                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} pagingEnabled  nestedScrollEnabled={true}>
+                <View style={{width:'90%',height:50,borderColor:'#000000',borderWidth:1}}>
+                    <Text>Holaaa: {seeSomething()}</Text>
+                </View>
+                <ScrollView horizontal={true} ref={scrollSignal} showsHorizontalScrollIndicator={false} pagingEnabled  nestedScrollEnabled={true}>
                     <View style={styles.tagContainer}>
                         <View style={styles.optionTitle}>
                             <Text style={styles.fontTitle}>Mi puntaje</Text>

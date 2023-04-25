@@ -69,6 +69,13 @@ export default editProfileStyles=StyleSheet.create({
         fontSize:18,
         fontWeight:500
     },
+    nameAndEdit:{
+        width:'95%',
+        height:28,
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },  
     levelName:{
         fontSize:20,
         fontWeight:300
@@ -150,7 +157,11 @@ export default editProfileStyles=StyleSheet.create({
         width:'100%',
         height:'50%',
         marginTop:'5%',
-      
     },
+    editLogo:{
+        width:30,
+        height:30,
+        backgroundColor:'#000000'
+    }
 
 })
