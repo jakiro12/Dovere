@@ -107,5 +107,11 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         fontSize:20,
         textAlign:'center',
         padding:'3%'
+    },
+    checkSucces:{
+        width:50,
+        height:50,
+        borderRadius:50,
+        backgroundColor:'#6AC52D'
     }
 })

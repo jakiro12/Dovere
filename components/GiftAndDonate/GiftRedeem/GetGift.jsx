@@ -34,6 +34,7 @@ export default function RedeemPointsForGift(){
                 
             >
                 <View style={styles.modalContainer}>
+                    <View style={styles.checkSucces}></View>
                     <Text style={styles.modalText}>
                         Has canjeado exitosamente nombre del producto
                     </Text>
