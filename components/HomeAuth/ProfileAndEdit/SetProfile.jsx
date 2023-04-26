@@ -1,11 +1,23 @@
-import {View,Text,StatusBar,Image,ScrollView,TouchableOpacity,Dimensions} from 'react-native';
+import {View,Text,StatusBar,Image,ScrollView,TouchableOpacity} from 'react-native';
 import styles from './SetStyles'
 import DownBar from '../../DownNavBar/NavOptions';
 import ArrowBorderRight from './Symbols/ArrowRigth';
 import ArrowBorderLeft from './Symbols/ArrowLeft';
+import { useNavigation } from '@react-navigation/native';
+import { useContext } from 'react';
+import AppCounter from '../../Provider/ProviderStatus';
 export default function SetAndEditUserProfile(){
-    
-   
+    const {setRedeem}=useContext(AppCounter)
+    const navigation=useNavigation()
+    const goToRedeemGift=()=>{
+        navigation.navigate('Redeem_Or_Donate')
+        setRedeem( {redeemDefault:true})
+
+    }   
+    const goToReedemDonation=()=>{
+        navigation.navigate('Redeem_Or_Donate')
+        setRedeem( {redeemDefault:false})
+    }
     return(
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
@@ -16,9 +28,7 @@ export default function SetAndEditUserProfile(){
                 </View>
             </View>
             <View style={styles.containerPhoto}>
-                <View style={styles.photoDisplay}><Image style={styles.photoUser} resizeMode='cover' source={{
-          uri: 'https://reactnative.dev/img/tiny_logo.png',
-        }} /></View>
+                <View style={styles.photoDisplay}><Image style={styles.photoUser} resizeMode='cover' source={require('../../imagesDisplayed/default_photo.jpg')} /></View>
                 <View style={styles.nameUserDisplay}>
                     <Text style={styles.levelName}>Jacaranda</Text>
                     <View style={styles.nameAndEdit}>   
@@ -40,11 +50,11 @@ export default function SetAndEditUserProfile(){
                             <Text style={styles.fontPointsAviable}>Puntos disponibles: 1200</Text>
                         </View>
                         <View style={styles.boxBtn}>
-                           <TouchableOpacity style={styles.btnRedeem}>
+                           <TouchableOpacity style={styles.btnRedeem} onPress={()=>goToRedeemGift()}>
                             <Text>Logo</Text>
                             <Text>Canjear</Text>
                            </TouchableOpacity>
-                           <TouchableOpacity style={styles.btnRedeem}>
+                           <TouchableOpacity style={styles.btnRedeem} onPress={()=>goToReedemDonation()}>
                            <Text>Logo</Text>
                             <Text>Donar</Text>
                            </TouchableOpacity>

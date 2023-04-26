@@ -89,7 +89,8 @@ export default editProfileStyles=StyleSheet.create({
         display:'flex',
         flexDirection:'column',
         justifyContent:'space-between',
-        alignItems:'center'
+        alignItems:'center',
+        borderRadius:10,
     },
     optionTitle:{
         width:'55%',

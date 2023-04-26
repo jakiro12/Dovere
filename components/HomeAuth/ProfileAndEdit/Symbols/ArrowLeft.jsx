@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     borderRightWidth: 10,
     borderTopColor: 'transparent',
     borderBottomColor: 'transparent',
-    borderRightColor: 'black',
+    borderRightColor: '#6AC52D',
     position: 'absolute',
     left: -8,
   },
