@@ -112,6 +112,9 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         width:50,
         height:50,
         borderRadius:50,
-        backgroundColor:'#6AC52D'
+        backgroundColor:'#6AC52D',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
     }
 })

@@ -1,4 +1,5 @@
 import {Text,TouchableOpacity,View,Modal,Image} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import DownBar from '../../DownNavBar/NavOptions';
 import styles from './styleGift'
 import { useState } from 'react';
@@ -34,7 +35,9 @@ export default function RedeemPointsForGift(){
                 
             >
                 <View style={styles.modalContainer}>
-                    <View style={styles.checkSucces}></View>
+                    <View style={styles.checkSucces}>
+                    <Icon name="check" size={30} color="#ffffff" />
+                    </View>
                     <Text style={styles.modalText}>
                         Has canjeado exitosamente nombre del producto
                     </Text>

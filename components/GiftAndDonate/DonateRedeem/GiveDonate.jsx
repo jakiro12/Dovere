@@ -3,6 +3,8 @@ import styles from './stylesDonate'
 import DownBar from '../../DownNavBar/NavOptions';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/FontAwesome'
+
 export default function GiveMyPoints(){
     const navigation=useNavigation()
     const[showModal,setShowModal]=useState(false)
@@ -33,6 +35,9 @@ export default function GiveMyPoints(){
             animationType='slide'
             >
                  <View style={styles.modalContainer}>
+                 <View style={styles.checkSucces}>
+                    <Icon name="check" size={30} color="#ffffff" />
+                    </View>
                     <Text style={styles.modalText}>
                         Has donado exitosamente nombe de la ong
                     </Text>
