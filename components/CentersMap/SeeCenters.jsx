@@ -1,12 +1,20 @@
-import { useState } from 'react';
-import { View,Text,StyleSheet} from 'react-native';
+import { useEffect, useState } from 'react';
+import { View,Text,StyleSheet,Platform} from 'react-native';
 import styles from './stylesCenter'
 import MapView from 'react-native-maps';
 import DownBar from '../DownNavBar/NavOptions';
+
 export default function NearbyCenters(){
+    const[say,setSay]=useState('noo funciona')
     const[origin,setOrigin]=useState({
       latitud:  -31.603722,
       longitud: -60.702640,
+    })
+    useEffect(()=>{
+
+      if(Platform.OS === 'android'){
+        setSay('estas en tu celu pero')
+      }
     })
     return(
         <View style={styles.container}>
@@ -19,6 +27,7 @@ export default function NearbyCenters(){
         }}
         
         />
+      <View><Text>{say}</Text></View>
         <DownBar/>
       </View>
     )
