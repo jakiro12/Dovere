@@ -8,9 +8,10 @@ export const NewStates=({children})=>{
         redeemDefault:true,
     })
     const[activeBtn,setActiveBtn]=useState('home')
+    const[openInfo,setOpenInfo]=useState('')
 
     return(
-        <AppCounter.Provider value={{redeem,setRedeem,activeBtn,setActiveBtn}}>
+        <AppCounter.Provider value={{redeem,setRedeem,activeBtn,setActiveBtn,openInfo,setOpenInfo}}>
             {children}
         </AppCounter.Provider>
     )

@@ -1,43 +1,43 @@
-import {Text,View,TouchableOpacity,Animated} from 'react-native';
+import {Text,View,TouchableOpacity} from 'react-native';
 import DownBar from '../DownNavBar/NavOptions';
 import styles from './stylesAks';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import HowUseIt from './Information/StepOne';
 import HowToWin from './Information/WinPoints';
 import HowToUpgrade from './Information/LevelsAndMore';
 import WhenCanI from './Information/RedeemTime';
+import AppCounter from '../Provider/ProviderStatus';
 export default function AksAndAwser(){
-
-    const[test,setTest]=useState('')
+    const{openInfo,setOpenInfo}=useContext(AppCounter)
     
     const navigation = useNavigation()
     const openAndCloseFirst=(e)=>{
-        if(e === test){
-            setTest('')
+        if(e === openInfo){
+            setOpenInfo('')
         }else{
-            setTest('a')
+            setOpenInfo('a')
         }
     }
     const openAndCloseSecond=(e)=>{
-        if(e === test){
-            setTest('')
+        if(e === openInfo){
+            setOpenInfo('')
         }else{
-            setTest('b')
+            setOpenInfo('b')
         }
     }
     const openAndCloseThird=(e)=>{
-        if(e === test){
-            setTest('')
+        if(e === openInfo){
+            setOpenInfo('')
         }else{
-            setTest('c')
+            setOpenInfo('c')
         }
     }
     const openAndCloseFourth=(e)=>{
-        if(e === test){
-            setTest('')
+        if(e === openInfo){
+            setOpenInfo('')
         }else{
-            setTest('d')
+            setOpenInfo('d')
         }
     }
 
@@ -49,24 +49,24 @@ export default function AksAndAwser(){
                     <Text>A</Text>
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'a' || test === '' ? 'flex' : 'none'},{height:test === 'a' ? '70%' : '15%'}]} >
-                <TouchableOpacity onPress={()=>openAndCloseFirst('a')} style={styles.btnText} activeOpacity={1}>
-                  {test === 'a' ? <HowUseIt/> : <Text style={{fontSize:24}}>Como usar la app</Text> }
+            <View style={[styles.boxQuestion,{display:openInfo === 'a' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'a' ? '70%' : '15%'}]} >
+                <TouchableOpacity onPress={()=>openAndCloseFirst('a')} style={styles.btnText} activeOpacity={1} disabled={openInfo === 'a' ? true : false}>
+                  {openInfo === 'a' ? <HowUseIt/> : <Text style={{fontSize:24}}>Como usar la app</Text> }
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'b' || test === '' ? 'flex' : 'none'},{height:test === 'b' ? '70%' : '15%'}]}>
+            <View style={[styles.boxQuestion,{display:openInfo === 'b' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'b' ? '70%' : '15%'}]}>
                 <TouchableOpacity onPress={()=>openAndCloseSecond('b')} style={styles.btnText} activeOpacity={1}>
-                  { test === 'b' ? <HowToWin/> : <Text  style={{fontSize:24}}>Como ganar puntos</Text>}
+                  { openInfo === 'b' ? <HowToWin/> : <Text  style={{fontSize:24}}>Como ganar puntos</Text>}
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'c' || test === '' ? 'flex' : 'none'},{height:test === 'c' ? '70%' : '15%'}]}>
-               <TouchableOpacity onPress={()=>openAndCloseThird('c')} activeOpacity={1}>
-               { test === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24}}>Niveles disponibles</Text>}
+            <View style={[styles.boxQuestion,{display:openInfo === 'c' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'c' ? '70%' : '15%'}]}>
+               <TouchableOpacity onPress={()=>openAndCloseThird('c')} activeOpacity={1} >
+               { openInfo === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24}}>Niveles disponibles</Text>}
                 </TouchableOpacity>
             </View>
-            <View style={[styles.boxQuestion,{display:test === 'd' || test === '' ? 'flex' : 'none'},{height:test === 'd' ? '70%' : '15%'}]}>
+            <View style={[styles.boxQuestion,{display:openInfo === 'd' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'd' ? '70%' : '15%'}]}>
             <TouchableOpacity onPress={()=>openAndCloseFourth('d')} activeOpacity={1}>
-            { test === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24}}>Cuando llega mi canje</Text>}
+            { openInfo === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24}}>Cuando llega mi canje</Text>}
                 </TouchableOpacity>
             </View>
                 <DownBar/>
