@@ -51,11 +51,11 @@ export default function SetAndEditUserProfile(){
                         </View>
                         <View style={styles.boxBtn}>
                            <TouchableOpacity style={styles.btnRedeem} onPress={()=>goToRedeemGift()}>
-                            <Text>Logo</Text>
+                           <Image source={require('../../imagesDisplayed/ticket.png')} style={styles.redeemLogosImage} resizeMode='contain' />
                             <Text>Canjear</Text>
                            </TouchableOpacity>
                            <TouchableOpacity style={styles.btnRedeem} onPress={()=>goToReedemDonation()}>
-                           <Text>Logo</Text>
+                           <Image source={require('../../imagesDisplayed/Give.png')} style={styles.redeemLogosImage} resizeMode='contain' />
                             <Text>Donar</Text>
                            </TouchableOpacity>
                         </View>

@@ -7,7 +7,7 @@ export default function HowUseIt(){
     
     return(
         <View style={styles.container}>
-            <TouchableOpacity style={styles.boxClose} onPress={()=>setOpenInfo('')}>
+            <TouchableOpacity style={styles.boxClose} onPress={()=>setOpenInfo('')} activeOpacity={1}>
                 <Text style={styles.textClose}>
                          Cerrar
                 </Text></TouchableOpacity>

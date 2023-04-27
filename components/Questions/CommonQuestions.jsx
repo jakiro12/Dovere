@@ -55,17 +55,17 @@ export default function AksAndAwser(){
                 </TouchableOpacity>
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'b' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'b' ? '70%' : '15%'}]}>
-                <TouchableOpacity onPress={()=>openAndCloseSecond('b')} style={styles.btnText} activeOpacity={1}>
+                <TouchableOpacity onPress={()=>openAndCloseSecond('b')} style={styles.btnText} activeOpacity={1} disabled={openInfo === 'b' ? true : false}>
                   { openInfo === 'b' ? <HowToWin/> : <Text  style={{fontSize:24}}>Como ganar puntos</Text>}
                 </TouchableOpacity>
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'c' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'c' ? '70%' : '15%'}]}>
-               <TouchableOpacity onPress={()=>openAndCloseThird('c')} activeOpacity={1} >
+               <TouchableOpacity onPress={()=>openAndCloseThird('c')} activeOpacity={1} style={styles.btnText} disabled={openInfo === 'c' ? true : false}>
                { openInfo === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24}}>Niveles disponibles</Text>}
                 </TouchableOpacity>
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'd' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'd' ? '70%' : '15%'}]}>
-            <TouchableOpacity onPress={()=>openAndCloseFourth('d')} activeOpacity={1}>
+            <TouchableOpacity onPress={()=>openAndCloseFourth('d')} activeOpacity={1} style={styles.btnText} disabled={openInfo === 'd' ? true : false}>
             { openInfo === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24}}>Cuando llega mi canje</Text>}
                 </TouchableOpacity>
             </View>

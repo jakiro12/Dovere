@@ -164,6 +164,9 @@ export default editProfileStyles=StyleSheet.create({
         width:30,
         height:30,
         backgroundColor:'#000000'
+    },  
+    redeemLogosImage:{
+        width:50,
+        height:50,
     }
-
 })
