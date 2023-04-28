@@ -11,7 +11,9 @@ export default MapDisplay=StyleSheet.create({
     },
     mapContainer:{
         width:'100%',
-        height:'90%',
+        height:'80%',
+        borderWidth:1,
+        borderColor:'#000000'
     }
 
 })
