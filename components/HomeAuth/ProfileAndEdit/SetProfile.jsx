@@ -67,7 +67,7 @@ export default function SetAndEditUserProfile(){
                             <ArrowBorderRight/>
                         </View>
                         <View style={styles.logoAndLevel}>
-                            <View><Text>Logo</Text></View>
+                            <View style={styles.logoLevel}><Image style={styles.imageLogoLevel} source={require('../../imagesDisplayed/plant.png')} resizeMode='cover'/></View>
                             <Text style={styles.fontBottles}>Jacaranda</Text>
                         </View>
                         <View style={styles.actualAmount}>

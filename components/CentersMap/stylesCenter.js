@@ -14,6 +14,14 @@ export default MapDisplay=StyleSheet.create({
         height:'80%',
         borderWidth:1,
         borderColor:'#000000'
+    },
+    testS:{
+        height:'80%',
+        width:'100%',
+        display:'flex',
+        justifyContent:'space-between',
+        alignItems:'center',
+        flexDirection:'column'
     }
 
 })

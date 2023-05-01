@@ -138,6 +138,14 @@ export default editProfileStyles=StyleSheet.create({
         justifyContent:'space-around',
         alignItems:'center'
     },
+    logoLevel:{
+        width:50,
+        height:50,
+    },  
+    imageLogoLevel:{
+        width:50,
+        height:50
+    },
     actualAmount:{
         width:'80%',
         height:'20%',
