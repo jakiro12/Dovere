@@ -9,7 +9,7 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
   return (
     <View style={stylesApp.container}>
       <View style={stylesApp.logoLogin}>
-        <Text>Logo</Text>
+        <Image style={stylesApp.imageLoginLogo} source={require('../imagesDisplayed/testis.png')} resizeMode='cover' />
       </View>
       <View style={stylesApp.contianerInputs}>
         <TextInput  style={stylesApp.inputTextStyles}
@@ -23,7 +23,15 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
         <TouchableOpacity style={stylesApp.get_into_app}  onPress={()=>{navigation.navigate('Home_login')}}>
          <Text>INGRESAR</Text>
         </TouchableOpacity>
-        <Text>¿No tienes una cuenta aun? Registrate</Text>
+          <View style={stylesApp.registerOption}>
+            <TouchableOpacity activeOpacity={1} style={stylesApp.textAsk}>
+            <Text style={stylesApp.resgisterText}>¿No tienes una cuenta aun? Registrate
+        </Text>
+            </TouchableOpacity>
+       
+
+          </View>
+
       </View>
       <View style={stylesApp.containerAuthWithMedias}>
 

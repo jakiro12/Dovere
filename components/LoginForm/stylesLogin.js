@@ -11,11 +11,9 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
     alignItems:'center'
    },
    logoLogin:{
-    width:'40%',
-    height:'20%',
-    borderColor:'black',
-    borderWidth:2,
-    marginTop:'10%',
+    width:130,
+    height:130,
+    marginTop:'1%',
    },
    contianerInputs:{
     width:'100%',
@@ -66,6 +64,28 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
    svgStyles:{
       flex:1,
       justifyContent:'center'
+   },
+   registerOption:{
+      height:35,
+      width:'80%',
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'center'
+   },
+   textAsk:{
+      height:20,
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'center',
+      width:'100%',
+      textAlign:'center'
+   },
+   resgisterText:{
+      fontSize:15
+   },
+   imageLoginLogo:{
+      width:'100%',
+      height:'100%',
    }
 })
 
