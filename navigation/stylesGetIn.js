@@ -11,12 +11,12 @@ export default landingDesign=StyleSheet.create({
     getInBtn:{
         width:100,
         height:30,
-        backgroundColor:'#E3E4D3',
-        borderColor:'#000000',
-        borderWidth:2,
+        borderBottomColor:'#000000',
+        borderBottomWidth:2,
         display:'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        borderStyle: 'dotted',
     },
     logoContainer:{
         width:150,
@@ -29,9 +29,9 @@ export default landingDesign=StyleSheet.create({
         height:50,
         borderColor:'#000000',
         borderWidth:1,
-        fontSize:22
+        fontSize:22,
     },
     textBtn:{
-        fontSize:16,
+        fontSize:22,
     }
 })

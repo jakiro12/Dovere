@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity,StatusBar } from 'react-native';
+import { View, Text, TouchableOpacity,StatusBar, Animated } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import GetIn from '../components/LoginForm/LoginApp';
@@ -12,17 +12,40 @@ import RedeemPointsForGift from '../components/GiftAndDonate/GiftRedeem/GetGift'
 import GiveMyPoints from '../components/GiftAndDonate/DonateRedeem/GiveDonate';
 import AksAndAwser from '../components/Questions/CommonQuestions';
 import styles from './stylesGetIn';
+import { useEffect,useRef } from 'react';
 function HomeScreen({navigation}) {
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim2 = useRef(new Animated.Value(0)).current;
+  const fadeAnim3 = useRef(new Animated.Value(0)).current;
+
+
+  useEffect(() => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 3000,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(fadeAnim2, {
+      toValue: 1,
+      duration: 4500,
+      useNativeDriver: true,
+    }).start();
+    Animated.timing(fadeAnim3, {
+      toValue: 1,
+      duration: 5300,
+      useNativeDriver: true,
+    }).start();
+  }, []);
     return (
       <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
 
-       <Text style={styles.infoStart}>Dirigete a tu centro de reciclaje mas cercano</Text>
-       <Text style={styles.infoStart}>Ingresa el envase a reciclar</Text>
-       <Text style={styles.infoStart}>Escanea el QR y sumá puntos</Text>
+       <Animated.Text style={[styles.infoStart,{opacity:fadeAnim}]}>Dirigete a tu centro de reciclaje mas cercano</Animated.Text>
+       <Animated.Text style={[styles.infoStart,{opacity:fadeAnim2}]}>Ingresa el envase a reciclar</Animated.Text>
+       <Animated.Text style={[styles.infoStart,{opacity:fadeAnim3}]}>Escanea el QR y sumá puntos</Animated.Text>
        <View style={styles.logoContainer}><Text>Logo de Inicio</Text></View>
-        <TouchableOpacity style={styles.getInBtn} onPress={()=>{navigation.navigate('log')}}>
-          <Text style={styles.textBtn}>Ingresar</Text>
+        <TouchableOpacity style={styles.getInBtn} activeOpacity={1} onPress={()=>{navigation.navigate('log')}}>
+          <Text style={styles.textBtn}>Saltar</Text>
           </TouchableOpacity>
        
      
