@@ -2,8 +2,17 @@ import {  Text, TextInput, TouchableOpacity, View,Image} from 'react-native';
 import stylesApp from './stylesLogin';
 import { useState } from 'react';
 export default function GetIn({navigation}) {  // pasar navegacion en el boton
-  const[text,setText]=useState("\tusuario") // espacio en blanco tambien funciona
-  const[pass,setPass]=useState("\tpassword")
+  const[dataUser,setDataUser]=useState({
+    userName:'\tusuario',
+    password:'\tpassword'
+  })
+  const handleUserLoginData=(key,value)=>{
+    setDataUser({...dataUser,[key]:value})
+  }
+  const verifyLoginData=()=>{
+    console.log(dataUser)
+    navigation.navigate('Home_login')
+  }
   const urlLogoGoogle='https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'
   const urlLogoFacebook='https://logotipoz.com/wp-content/uploads/2021/10/logo-facebook-png.png'
   return (
@@ -13,14 +22,15 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
       </View>
       <View style={stylesApp.contianerInputs}>
         <TextInput  style={stylesApp.inputTextStyles}
-        value={text}
-        onChangeText={setText}
+        value={dataUser.userName}
+        onChangeText={(enteredValue)=>handleUserLoginData('userName',enteredValue)}
         ></TextInput>
         <TextInput  style={stylesApp.inputTextStyles}
-          value={pass}
-          onChangeText={setPass}
+         secureTextEntry
+          value={dataUser.password}
+          onChangeText={(enteredValue)=>handleUserLoginData('password',enteredValue)}
         ></TextInput>
-        <TouchableOpacity style={stylesApp.get_into_app}  onPress={()=>{navigation.navigate('Home_login')}}>
+        <TouchableOpacity style={stylesApp.get_into_app}  onPress={verifyLoginData}>
          <Text>INGRESAR</Text>
         </TouchableOpacity>
           <View style={stylesApp.registerOption}>
@@ -28,8 +38,6 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
             <Text style={stylesApp.resgisterText}>¿No tienes una cuenta aun? Registrate
         </Text>
             </TouchableOpacity>
-       
-
           </View>
 
       </View>

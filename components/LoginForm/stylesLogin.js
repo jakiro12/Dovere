@@ -41,10 +41,12 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
     alignItems:'center'
    },
    inputTextStyles:{
-    width:'90%',
-    height:45,
+    width:'80%',
+    height:40,
     backgroundColor:'#E7F0E9',
     borderRadius:10,
+    marginBottom:10,
+    paddingLeft:10,
    },
    get_into_app:{
     width:'40%',

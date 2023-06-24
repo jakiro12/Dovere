@@ -47,7 +47,7 @@ function HomeScreen({navigation}) {
         <Image style={styles.imgLogoSize} source={require('../components/imagesDisplayed/bottle.jpg')} resizeMode='contain'/>
        </View>
         <TouchableOpacity style={styles.getInBtn} activeOpacity={1} onPress={()=>{navigation.navigate('log')}}>
-          <Text style={styles.textBtn}>Saltar</Text>
+          <Text style={styles.textBtn}>SALTAR</Text>
           </TouchableOpacity>
        
      
