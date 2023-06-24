@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity,StatusBar, Animated } from 'react-native';
+import { View, Text, TouchableOpacity,StatusBar, Animated,Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import GetIn from '../components/LoginForm/LoginApp';
@@ -43,7 +43,9 @@ function HomeScreen({navigation}) {
        <Animated.Text style={[styles.infoStart,{opacity:fadeAnim}]}>Dirigete a tu centro de reciclaje mas cercano</Animated.Text>
        <Animated.Text style={[styles.infoStart,{opacity:fadeAnim2}]}>Ingresa el envase a reciclar</Animated.Text>
        <Animated.Text style={[styles.infoStart,{opacity:fadeAnim3}]}>Escanea el QR y sumá puntos</Animated.Text>
-       <View style={styles.logoContainer}><Text>Logo de Inicio</Text></View>
+       <View style={styles.logoContainer}>
+        <Image style={styles.imgLogoSize} source={require('../components/imagesDisplayed/bottle.jpg')} resizeMode='contain'/>
+       </View>
         <TouchableOpacity style={styles.getInBtn} activeOpacity={1} onPress={()=>{navigation.navigate('log')}}>
           <Text style={styles.textBtn}>Saltar</Text>
           </TouchableOpacity>

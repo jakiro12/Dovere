@@ -21,8 +21,6 @@ export default landingDesign=StyleSheet.create({
     logoContainer:{
         width:150,
         height:150,
-        borderColor:'#000000',
-        borderWidth:1,
     },
     infoStart:{
         width:'90%',
@@ -33,5 +31,11 @@ export default landingDesign=StyleSheet.create({
     },
     textBtn:{
         fontSize:22,
+    },
+    imgLogoSize:{
+        width:'100%',
+        height:'100%',
+        borderRadius:15,
     }
+    
 })

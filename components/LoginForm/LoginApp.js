@@ -9,7 +9,7 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
   return (
     <View style={stylesApp.container}>
       <View style={stylesApp.logoLogin}>
-        <Image style={stylesApp.imageLoginLogo} source={require('../imagesDisplayed/testis.png')} resizeMode='cover' />
+        <Image style={stylesApp.imageLoginLogo} source={require('../imagesDisplayed/bottle.jpg')} resizeMode='cover' />
       </View>
       <View style={stylesApp.contianerInputs}>
         <TextInput  style={stylesApp.inputTextStyles}
