@@ -3,7 +3,8 @@ import styles from './StatusStyles';
 import DownBar from '../DownNavBar/NavOptions';
 import { useState } from 'react';
 export default function ActualPointsAndProgress ({navigation}){
-    const [progress, setProgress] = useState(0.2)
+    const [progress, setProgress] = useState(100)
+    
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
@@ -31,8 +32,8 @@ export default function ActualPointsAndProgress ({navigation}){
                 <View style={styles.advancedStatus}>
                     <View style={styles.displayLevelStatus}>
                         <Text style={styles.titleLevel}>Botellas</Text>
-                        <View  style={[styles.circleLevel]}>
-                            <Text>107</Text>
+                        <View  style={styles.circleLevel}>
+                            <Text style={styles.amountBotles}>1000</Text>
                         </View>
                     </View>
                 </View>

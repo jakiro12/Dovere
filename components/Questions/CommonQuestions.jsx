@@ -51,22 +51,22 @@ export default function AksAndAwser(){
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'a' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'a' ? '70%' : '15%'}]} >
                 <TouchableOpacity onPress={()=>openAndCloseFirst('a')} style={styles.btnText} activeOpacity={1} disabled={openInfo === 'a' ? true : false}>
-                  {openInfo === 'a' ? <HowUseIt/> : <Text style={{fontSize:24}}>Como usar la app</Text> }
+                  {openInfo === 'a' ? <HowUseIt/> : <Text style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Como usar la app</Text> }
                 </TouchableOpacity>
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'b' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'b' ? '70%' : '15%'}]}>
                 <TouchableOpacity onPress={()=>openAndCloseSecond('b')} style={styles.btnText} activeOpacity={1} disabled={openInfo === 'b' ? true : false}>
-                  { openInfo === 'b' ? <HowToWin/> : <Text  style={{fontSize:24}}>Como ganar puntos</Text>}
+                  { openInfo === 'b' ? <HowToWin/> : <Text  style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Como ganar puntos</Text>}
                 </TouchableOpacity>
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'c' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'c' ? '70%' : '15%'}]}>
                <TouchableOpacity onPress={()=>openAndCloseThird('c')} activeOpacity={1} style={styles.btnText} disabled={openInfo === 'c' ? true : false}>
-               { openInfo === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24}}>Niveles disponibles</Text>}
+               { openInfo === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Niveles disponibles</Text>}
                 </TouchableOpacity>
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'd' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'd' ? '70%' : '15%'}]}>
             <TouchableOpacity onPress={()=>openAndCloseFourth('d')} activeOpacity={1} style={styles.btnText} disabled={openInfo === 'd' ? true : false}>
-            { openInfo === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24}}>Cuando llega mi canje</Text>}
+            { openInfo === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Cuando llega mi canje</Text>}
                 </TouchableOpacity>
             </View>
                 <DownBar/>

@@ -22,7 +22,7 @@ const styles=StyleSheet.create({
         width:'100%',
         height:'98%',
         display:'flex',
-        justifyContent:'space-around',
+        justifyContent:'flex-start',
         alignItems:'center'
     },
     boxClose:{
@@ -31,16 +31,18 @@ const styles=StyleSheet.create({
         borderColor:'#ffffff',
         width:'28%',
         borderRadius:5,
-        backgroundColor:'#6AC52D',
+        backgroundColor:'#DADD33',
         display:'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        marginBottom:20,
     },
     boxContent:{
         height:'88%',
     },
     textClose:{
         fontSize:22,
+        color:'#ffffff',
     },
     textInfo:{
         fontSize:16

@@ -36,14 +36,13 @@ export default QuestionStyles=StyleSheet.create({
     },
     boxQuestion:{
         width:'85%',
-        borderWidth:2,
-        borderColor:'#000000',
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
         borderRadius:10,
-        backgroundColor:'#DADD33',
-        opacity:0.9
+        backgroundColor:'#6AC52D',
+        opacity:0.9,
+        
     },
     btnText:{
         width:'90%',
