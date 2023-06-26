@@ -81,7 +81,6 @@ export default editProfileStyles=StyleSheet.create({
         fontWeight:300
     },
     tagContainer:{
-        width:300,
         height:'100%',
         borderColor:'#000000',
         borderWidth:2,

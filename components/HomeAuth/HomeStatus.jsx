@@ -38,8 +38,17 @@ export default function ActualPointsAndProgress ({navigation}){
                     </View>
                 </View>
             </View>
-            <View style={styles.miniMap}>
-                <Text>Centros de reciclaje</Text>
+            <View style={styles.miniData}>
+                <View style={styles.percentData}>
+                    <View style={styles.boxPercentageType}>
+                        <Text style={styles.numberPercentage}>50%</Text>
+                        <Text>Vidrio</Text>
+                    </View>
+                    <View style={styles.boxPercentageType}>
+                    <Text style={styles.numberPercentage}>50%</Text>
+                    <Text>Plastico</Text>
+                    </View>
+                </View>
             </View>
             <DownBar/>
         </View>

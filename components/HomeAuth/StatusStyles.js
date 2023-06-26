@@ -43,17 +43,21 @@ export default actualValues=StyleSheet.create({
     progress:{
         width:'90%',
         height:'25%',
+        borderBottomWidth:1,
+        borderBottomColor:'#0A8156'
     },  
     fontProgress:{
         fontSize:20,
         fontWeight:600,
         color:'#2E4A21'
     },
-    miniMap:{
+    miniData:{
         width:'90%',
         height:'20%',
-        borderColor:'black',
-        borderWidth:2,
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'center',
     },
     userWelcome:{
         width:'100%',
@@ -140,5 +144,27 @@ export default actualValues=StyleSheet.create({
         color:'#6AC52D',
         fontWeight:'bold',
         fontSize:40,
+    },
+    percentData:{
+        width:'80%',
+        height:'90%',
+      
+        display:'flex',
+        justifyContent:'space-around',
+        alignItems:'center',
+        flexDirection:'row'
+    },
+    boxPercentageType:{
+        width:'45%',
+        height:'100%',
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    numberPercentage:{
+        fontSize:30,
+        color:'#000000',
+        fontWeight:'bold',
     }
 })
