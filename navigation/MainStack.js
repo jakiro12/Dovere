@@ -13,6 +13,7 @@ import GiveMyPoints from '../components/GiftAndDonate/DonateRedeem/GiveDonate';
 import AksAndAwser from '../components/Questions/CommonQuestions';
 import styles from './stylesGetIn';
 import { useEffect,useRef } from 'react';
+import FormToCreateANewUser from '../components/RegisterForm/CreateNewUser';
 function HomeScreen({navigation}) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim2 = useRef(new Animated.Value(0)).current;
@@ -67,6 +68,7 @@ function HomeScreen({navigation}) {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name='log' component={GetIn} />
           <Stack.Screen name='Home_login' component={ActualPointsAndProgress} />
+          <Stack.Screen name='Register' component={FormToCreateANewUser}/>
           <Stack.Screen name='See_set_profile' component={SetAndEditUserProfile} />
           <Stack.Screen name='Open_Qr_Reader' component={OpenQrReader}/>
           <Stack.Screen name='Redeem_Or_Donate' component={SeeMyOptions} />

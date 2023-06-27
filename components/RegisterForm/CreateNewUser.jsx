@@ -1,7 +1,8 @@
-import { Text,View } from "react-native"
+import { Text,View } from "react-native";
+import styles from './stylesNewUser'
 export default function FormToCreateANewUser(){
     return(
-        <View>
+        <View style={styles.container}>
             <Text>hola</Text>
         </View>
     )

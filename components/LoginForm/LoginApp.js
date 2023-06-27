@@ -13,6 +13,9 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
     console.log(dataUser)
     navigation.navigate('Home_login')
   }
+  const createNewUser =()=>{
+    navigation.navigate('Register')
+  }
   const urlLogoGoogle='https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png'
   const urlLogoFacebook='https://logotipoz.com/wp-content/uploads/2021/10/logo-facebook-png.png'
   return (
@@ -34,7 +37,7 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
          <Text>INGRESAR</Text>
         </TouchableOpacity>
           <View style={stylesApp.registerOption}>
-            <TouchableOpacity activeOpacity={1} style={stylesApp.textAsk}>
+            <TouchableOpacity activeOpacity={1} style={stylesApp.textAsk} onPress={createNewUser}>
             <Text style={stylesApp.resgisterText}>¿No tienes una cuenta aun? Registrate
         </Text>
             </TouchableOpacity>
