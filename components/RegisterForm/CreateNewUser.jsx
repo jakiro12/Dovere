@@ -1,9 +1,28 @@
-import { Text,View } from "react-native";
+import { Text,View,ImageBackground,KeyboardAvoidingView } from "react-native";
 import styles from './stylesNewUser'
+import { TextInput } from "react-native";
 export default function FormToCreateANewUser(){
     return(
-        <View style={styles.container}>
-            <Text>hola</Text>
-        </View>
+        <KeyboardAvoidingView style={styles.container}
+            behavior="height"
+            enabled='true'
+        >
+            <ImageBackground style={styles.imageBg} resizeMode="cover" source={require('../imagesDisplayed/nobgBottle.png')}>
+                <View style={styles.formContianerInp}>
+                    <TextInput 
+                        style={styles.inptField}
+                        value="holasdf"
+                    ></TextInput>
+                       <TextInput 
+                        style={styles.inptField}
+                        value="holasdf"
+                    ></TextInput>
+                       <TextInput 
+                        style={styles.inptField}
+                        value="holasdf"
+                    ></TextInput>
+                </View>
+            </ImageBackground>
+        </KeyboardAvoidingView>
     )
 }

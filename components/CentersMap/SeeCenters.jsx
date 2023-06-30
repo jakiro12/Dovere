@@ -4,9 +4,11 @@ import styles from './stylesCenter'
 import DownBar from '../DownNavBar/NavOptions';
 import * as Location from 'expo-location';
 import SeeMapLocation from './Permissions/Location';
+import { TouchableOpacity } from 'react-native';
 export default function NearbyCenters(){
-    const[say,setSay]=useState('')
+    const[say,setSay]=useState(false)
     const[coorT,setCoorT]=useState(null)
+    const[allCenters,setAllCenters]=useState([''])
    
     useEffect(()=>{
       async function getLocationPermission() {
@@ -14,12 +16,12 @@ export default function NearbyCenters(){
         if (status !== 'granted') {
           // Los permisos de ubicación no fueron concedidos
           // Manejar el error o mostrar un mensaje al usuario
-          setSay('no')
+          
           return
         }
         // Los permisos de ubicación fueron concedidos
         // Hacer algo con la ubicación
-        setSay('mostrando mapa')
+        setSay(true)
         const coords= await Location.getCurrentPositionAsync({})
         setCoorT(coords)
       }
@@ -28,7 +30,15 @@ export default function NearbyCenters(){
     return(
         <View style={styles.container}>
       {coorT && (<SeeMapLocation coordiantes={coorT} />) || <ActivityIndicator  size="large" color="#0000ff" />}
-      <View><Text>{say} y agrgar botones :D</Text></View>
+      <View style={styles.infoAndBtn}>
+        {
+          say === true ? (  <TouchableOpacity>
+          <Text>Ver Centros</Text>
+        </TouchableOpacity>) :
+        null
+        }
+      
+      </View>
         <DownBar/>
       </View>
     )
