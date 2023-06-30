@@ -21,23 +21,31 @@ export default function NearbyCenters(){
         }
         // Los permisos de ubicación fueron concedidos
         // Hacer algo con la ubicación
-        setSay(true)
         const coords= await Location.getCurrentPositionAsync({})
         setCoorT(coords)
+        setSay(true)
       }
      getLocationPermission()
     },[])
     return(
         <View style={styles.container}>
       {coorT && (<SeeMapLocation coordiantes={coorT} />) || <ActivityIndicator  size="large" color="#0000ff" />}
-      {
-        say === true &&
-        <View style={styles.infoAndBtn}>
-            <TouchableOpacity>
-          <Text>Ver Centros</Text>
-        </TouchableOpacity>
+       <View style={styles.infoAndBtn}>
+          {
+            say === true ?
+            (
+              <TouchableOpacity style={styles.btnSeeMarks}>
+              <Text style={styles.textMark}>
+               Ver centros
+              </Text>
+            </TouchableOpacity>
+            ) :
+            null
+          }
+           
       </View>
-      }
+     
+     
       
         <DownBar/>
       </View>

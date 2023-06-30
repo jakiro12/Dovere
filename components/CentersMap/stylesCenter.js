@@ -28,6 +28,18 @@ export default MapDisplay=StyleSheet.create({
         width:'100%',
         flexDirection:'row',
         justifyContent:'center'
+    },
+    btnSeeMarks:{
+        width:'40%',
+        height:40,
+        backgroundColor:'#000000',
+        borderRadius:10,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    textMark:{
+        color:'#ffffff'
     }
 
 })
