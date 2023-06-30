@@ -30,15 +30,15 @@ export default function NearbyCenters(){
     return(
         <View style={styles.container}>
       {coorT && (<SeeMapLocation coordiantes={coorT} />) || <ActivityIndicator  size="large" color="#0000ff" />}
-      <View style={styles.infoAndBtn}>
-        {
-          say === true ? (  <TouchableOpacity>
+      {
+        say === true &&
+        <View style={styles.infoAndBtn}>
+            <TouchableOpacity>
           <Text>Ver Centros</Text>
-        </TouchableOpacity>) :
-        null
-        }
-      
+        </TouchableOpacity>
       </View>
+      }
+      
         <DownBar/>
       </View>
     )

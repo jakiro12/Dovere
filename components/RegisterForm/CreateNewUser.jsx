@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Text,View,ImageBackground,KeyboardAvoidingView } from "react-native";
 import styles from './stylesNewUser'
 import { TextInput } from "react-native";
@@ -24,5 +25,13 @@ export default function FormToCreateANewUser(){
                 </View>
             </ImageBackground>
         </KeyboardAvoidingView>
+=======
+import { Text,View } from "react-native"
+export default function FormToCreateANewUser(){
+    return(
+        <View>
+            <Text>hola</Text>
+        </View>
+>>>>>>> parent of b532b0e (set form)
     )
 }
