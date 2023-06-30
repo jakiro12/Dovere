@@ -1,4 +1,4 @@
-import {View,Text,StatusBar,Image,ScrollView,TouchableOpacity,Dimensions} from 'react-native';
+import {View,Text,StatusBar,Image,ScrollView,TouchableOpacity} from 'react-native';
 import styles from './SetStyles'
 import DownBar from '../../DownNavBar/NavOptions';
 import ArrowBorderRight from './Symbols/ArrowRigth';
@@ -18,7 +18,6 @@ export default function SetAndEditUserProfile(){
         navigation.navigate('Redeem_Or_Donate')
         setRedeem( {redeemDefault:false})
     }
-    const {width} =Dimensions.get('window')
     return(
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
@@ -42,7 +41,7 @@ export default function SetAndEditUserProfile(){
             <View style={styles.sliderContent}>
                
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} pagingEnabled  nestedScrollEnabled={true}>
-                    <View style={[styles.tagContainer,{width:width * 0.85}]}>
+                    <View style={styles.tagContainer}>
                         <View style={styles.optionTitle}>
                             <Text style={styles.fontTitle}>Mi puntaje</Text>
                             <ArrowBorderRight/>
@@ -61,7 +60,7 @@ export default function SetAndEditUserProfile(){
                            </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={[styles.tagContainer,{width:width * 0.85}]}>
+                    <View style={styles.tagContainer}>
                     <View style={styles.optionTitle}>
                         <ArrowBorderLeft/>
                             <Text style={styles.fontTitle}>Crecimiento</Text>
@@ -76,7 +75,7 @@ export default function SetAndEditUserProfile(){
                             <Text style={styles.fontBottles}>Botellas recicladas</Text>
                         </View>
                         </View>
-                    <View style={[styles.tagContainer,{width:width * 0.85}]}>
+                    <View style={styles.tagContainer}>
                     <View style={styles.optionTitle}>
                     <ArrowBorderLeft/>
                             <Text style={styles.fontTitle}>Movimientos</Text>

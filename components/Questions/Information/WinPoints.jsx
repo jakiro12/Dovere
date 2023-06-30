@@ -2,7 +2,7 @@ import { Text, View, StyleSheet, TouchableOpacity }  from "react-native";
 import AppCounter from "../../Provider/ProviderStatus";
 import { useContext } from "react";
 
-export default function HowToWin({closeMenu}){
+export default function HowToWin(){
     const{setOpenInfo}=useContext(AppCounter)
     return(
         <View style={styles.container}>
