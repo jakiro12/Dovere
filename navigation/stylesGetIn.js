@@ -6,32 +6,38 @@ export default landingDesign=StyleSheet.create({
         width:'100%',
         display:'flex',
         alignItems:'center',
-        justifyContent:'space-around'
+        justifyContent:'space-around',
+        backgroundColor:'#DADD33',
     },
     getInBtn:{
         width:100,
         height:30,
-        backgroundColor:'#E3E4D3',
-        borderColor:'#000000',
-        borderWidth:2,
+        borderBottomColor:'#ffffff',
+        borderBottomWidth:2,
         display:'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        borderStyle: 'dotted',
     },
     logoContainer:{
         width:150,
         height:150,
-        borderColor:'#000000',
-        borderWidth:1,
     },
     infoStart:{
         width:'90%',
-        height:50,
-        borderColor:'#000000',
-        borderWidth:1,
-        fontSize:22
+        height:70,
+        fontSize:24,
+        color:'#ffffff',
+        fontWeight:'bold',
     },
     textBtn:{
-        fontSize:16,
+        fontSize:22,
+        color:'#ffffff'
+    },
+    imgLogoSize:{
+        width:'100%',
+        height:'100%',
+        borderRadius:15,
     }
+    
 })

@@ -118,15 +118,13 @@ export default actualValues=StyleSheet.create({
         textAlign:'center',
     },
     circleLevel:{
-        width:75,
-        height:75,
-        borderColor:'red',
-        borderWidth:4,
-        borderRadius:50,
+        width:200,
+        height:70,
         margin:'auto',
         display:'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+    
     },
     poinsText:{
         fontSize:20,
@@ -137,5 +135,10 @@ export default actualValues=StyleSheet.create({
         fontSize:20,
         color:'#0A8156',
         fontWeight:600
+    },
+    amountBotles:{
+        color:'#6AC52D',
+        fontWeight:'bold',
+        fontSize:40,
     }
 })

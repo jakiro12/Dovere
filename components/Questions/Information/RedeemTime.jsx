@@ -38,7 +38,7 @@ const styles=StyleSheet.create({
         borderColor:'#ffffff',
         width:'28%',
         borderRadius:5,
-        backgroundColor:'#6AC52D',
+        backgroundColor:'#DADD33',
         display:'flex',
         justifyContent:'center',
         alignItems:'center'
@@ -48,6 +48,7 @@ const styles=StyleSheet.create({
     },
     textClose:{
         fontSize:22,
+        color:'#ffffff'
     },
     textInfo:{
         fontSize:16

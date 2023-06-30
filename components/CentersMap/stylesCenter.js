@@ -22,6 +22,12 @@ export default MapDisplay=StyleSheet.create({
         justifyContent:'space-between',
         alignItems:'center',
         flexDirection:'column'
+    },
+    infoAndBtn:{
+        display:'flex',
+        width:'100%',
+        flexDirection:'row',
+        justifyContent:'center'
     }
 
 })
