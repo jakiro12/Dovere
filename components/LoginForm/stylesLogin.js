@@ -14,6 +14,8 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
     width:130,
     height:130,
     marginTop:'1%',
+    borderRadius:20,
+    overflow:'hidden'
    },
    contianerInputs:{
     width:'100%',
@@ -73,7 +75,7 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
       justifyContent:'center'
    },
    textAsk:{
-      height:20,
+      height:25,
       display:'flex',
       alignItems:'center',
       justifyContent:'center',

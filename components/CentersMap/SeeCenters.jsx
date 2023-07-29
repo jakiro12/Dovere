@@ -5,36 +5,42 @@ import DownBar from '../DownNavBar/NavOptions';
 import * as Location from 'expo-location';
 import SeeMapLocation from './Permissions/Location';
 import { TouchableOpacity } from 'react-native';
+
 export default function NearbyCenters(){
     const[say,setSay]=useState(false)
-    const[coorT,setCoorT]=useState(null)
-    const[allCenters,setAllCenters]=useState([''])
-   
+    const[coorT,setCoorT]=useState(null)   
+    const[seeCenters,setSeeCenters]=useState(false)
     useEffect(()=>{
-      async function getLocationPermission() {
-        const { status } = await Location.requestForegroundPermissionsAsync();
+      ( async () => {
+        const { status } = await Location.requestForegroundPermissionsAsync()
         if (status !== 'granted') {
-          // Los permisos de ubicación no fueron concedidos
-          // Manejar el error o mostrar un mensaje al usuario
-          
-          return
-        }
-        // Los permisos de ubicación fueron concedidos
-        // Hacer algo con la ubicación
-        const coords= await Location.getCurrentPositionAsync({})
-        setCoorT(coords)
-        setSay(true)
-      }
-     getLocationPermission()
+          console.log('Permission to access location was denied')
+        } else {
+          const locationSubscription = await Location.watchPositionAsync({
+                accuracy: Location.Accuracy.BestForNavigation,
+                timeInterval: 3000,
+                distanceInterval: 5,
+          }, (location) => {
+            setCoorT(location)
+            setSay(true)
+          })
+        } return () => locationSubscription.remove()
+      })()
     },[])
+
+
+    
     return(
         <View style={styles.container}>
-      {coorT && (<SeeMapLocation coordiantes={coorT} />) || <ActivityIndicator  size="large" color="#0000ff" />}
+      {coorT &&
+       (<SeeMapLocation coordiantes={coorT} showCenters={seeCenters}/>) 
+      ||
+       <ActivityIndicator  size="large" color="#0000ff" />}
        <View style={styles.infoAndBtn}>
           {
             say === true ?
             (
-              <TouchableOpacity style={styles.btnSeeMarks}>
+              <TouchableOpacity style={styles.btnSeeMarks} onPress={()=>setSeeCenters(true)}>
               <Text style={styles.textMark}>
                Ver centros
               </Text>
@@ -44,9 +50,6 @@ export default function NearbyCenters(){
           }
            
       </View>
-     
-     
-      
         <DownBar/>
       </View>
     )

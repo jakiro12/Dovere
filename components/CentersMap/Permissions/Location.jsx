@@ -1,8 +1,9 @@
 import MapView,{Marker} from 'react-native-maps';
 import styles from '../stylesCenter';
+import { centersLocation } from './centers';
 
 //coorT.coords.latitude  -31.6045413,-60.7077374,
-export default function SeeMapLocation({coordiantes}){
+export default function SeeMapLocation({coordiantes,showCenters}){
     return(
         <MapView
         style={styles.mapContainer}
@@ -11,20 +12,22 @@ export default function SeeMapLocation({coordiantes}){
           longitude: coordiantes.coords.longitude,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
-        }}>
-        <Marker
+        }}
+        showsUserLocation={true}
+        >
+      {
+        showCenters === true ? (
+          
+          <Marker
           coordinate={{
-            latitude: coordiantes.coords.latitude,
-            longitude: coordiantes.coords.longitude,
+            latitude: centersLocation.center_1.latitude,
+            longitude: centersLocation.center_1.longitude, 
           }}
         />
-        <Marker 
-        pinColor='#00ff00'
-        coordinate={{
-          latitude:-31.6045413,
-          longitude: -60.7077374,
-        }}
-        />
+       
+        ) :
+        null
+      }
       </MapView>
     )
 
