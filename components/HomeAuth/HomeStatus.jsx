@@ -3,8 +3,9 @@ import styles from './StatusStyles';
 import DownBar from '../DownNavBar/NavOptions';
 import { useState } from 'react';
 export default function ActualPointsAndProgress ({navigation}){
-    const [progress, setProgress] = useState(100)
-    
+    const[plastic,setPlastic]=useState(0.3)
+    const[glass,setGlass]=useState(0.7)
+
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
@@ -38,8 +39,20 @@ export default function ActualPointsAndProgress ({navigation}){
                     </View>
                 </View>
             </View>
-            <View style={styles.miniMap}>
-                <Text>Centros de reciclaje</Text>
+            <View style={styles.percentageUntilNow}>
+                <View style={[styles.percentageBox,
+                    {width: plastic < 0.5 ?  `${(45) - ((1-plastic)*10)  }%` : '40%',
+                    height:  plastic < 0.5 ?  `${(80) - ((1-plastic)*10)}%`: '80%',
+                    backgroundColor: plastic < 0.5 ? `rgba(106, 197, 45, ${plastic})`: '#6AC52D'}]}>
+                   <View><Text>Plastico</Text></View>
+                   <View><Text>30%</Text></View>
+                </View>
+                <View style={[styles.percentageBox,{width: glass < 0.5 ?  `${(45) - ((1-glass)*10)  }%` : '40%',
+                    height:  glass < 0.5 ?  `${(80) - ((1-glass)*10)}%`: '80%',
+                    backgroundColor:  glass < 0.5 ? `rgba(106, 197, 45, ${glass})`: '#6AC52D' }]}>
+                <View><Text>Vidrio</Text></View>
+                   <View><Text>70%</Text></View>
+                </View>
             </View>
             <DownBar/>
         </View>

@@ -49,11 +49,13 @@ export default actualValues=StyleSheet.create({
         fontWeight:600,
         color:'#2E4A21'
     },
-    miniMap:{
+    percentageUntilNow:{
         width:'90%',
         height:'20%',
-        borderColor:'black',
-        borderWidth:2,
+        display:'flex',
+        justifyContent:'space-around',
+        alignItems:'center',
+        flexDirection:'row'
     },
     userWelcome:{
         width:'100%',
@@ -140,5 +142,13 @@ export default actualValues=StyleSheet.create({
         color:'#6AC52D',
         fontWeight:'bold',
         fontSize:40,
+    },
+    percentageBox:{
+        borderWidth:2,
+        borderColor:'#000000',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        borderRadius:20,
     }
 })
