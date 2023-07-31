@@ -35,7 +35,7 @@ export default function NearbyCenters(){
       {coorT &&
        (<SeeMapLocation coordiantes={coorT} showCenters={seeCenters}/>) 
       ||
-       <ActivityIndicator  size="large" color="#0000ff" />}
+       <ActivityIndicator  size="large" color="#0000ff" style={styles.activitycontainer} />}
        <View style={styles.infoAndBtn}>
           {
             say === true ?

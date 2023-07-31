@@ -47,6 +47,7 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
     height:45,
     backgroundColor:'#E7F0E9',
     borderRadius:10,
+    paddingLeft:10
    },
    get_into_app:{
     width:'40%',
@@ -61,11 +62,12 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
     width:70,
     height:70,
     borderRadius:70,
-    flex:1,
+    overflow:'hidden',
    },
    svgStyles:{
       flex:1,
-      justifyContent:'center'
+      justifyContent:'center',
+      resizeMode:'stretch',
    },
    registerOption:{
       height:35,
@@ -83,7 +85,8 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
       textAlign:'center'
    },
    resgisterText:{
-      fontSize:15
+      fontSize:15,
+      color:'#0000FF'
    },
    imageLoginLogo:{
       width:'100%',

@@ -3,8 +3,8 @@ import stylesApp from './stylesLogin';
 import { useState } from 'react';
 export default function GetIn({navigation}) {  // pasar navegacion en el boton
   const[dataUser,setDataUser]=useState({
-    userName:'\tusuario',
-    password:'\tpassword'
+    userName:'usuario',
+    password:'password'
   })
   const handleUserLoginData=(key,value)=>{
     setDataUser({...dataUser,[key]:value})
@@ -42,13 +42,12 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
 
       </View>
       <View style={stylesApp.containerAuthWithMedias}>
-
           <View style={stylesApp.containerLogo_F_G}>
             <View style={stylesApp.bothLogos}>
                 <Image source={{uri:urlLogoGoogle}} resizeMode='cover' style={stylesApp.svgStyles}/>
             </View>
             <View style={stylesApp.bothLogos}>
-            <Image source={{uri:urlLogoFacebook}} resizeMode='contain' style={stylesApp.svgStyles}/>
+            <Image source={{uri:urlLogoFacebook}}  style={stylesApp.svgStyles}/>
             </View>
           </View>
             <Text>Tambien puedes ingresar con tus redes</Text>

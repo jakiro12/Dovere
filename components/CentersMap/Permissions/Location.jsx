@@ -19,6 +19,7 @@ export default function SeeMapLocation({coordiantes,showCenters}){
           centersLocation.map((e,i)=>{
             return(
               <Marker
+              key={i}
               coordinate={{
                 latitude: e.coordinates.latitude,
                 longitude: e.coordinates.longitude, 

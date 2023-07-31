@@ -150,5 +150,8 @@ export default actualValues=StyleSheet.create({
         justifyContent:'center',
         alignItems:'center',
         borderRadius:20,
+    },
+    fontToPencentage:{
+        fontSize:18
     }
 })

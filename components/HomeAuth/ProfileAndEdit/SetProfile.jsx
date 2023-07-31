@@ -33,7 +33,7 @@ export default function SetAndEditUserProfile(){
                     <Text style={styles.levelName}>Jacaranda</Text>
                     <View style={styles.nameAndEdit}>   
                     <Text style={styles.fullName}>Nombre completo</Text>
-                    <Image source={require('../../imagesDisplayed/Pencil.jpg')} style={styles.editLogo} resizeMode='cover'/>
+                    <Image source={require('../../imagesDisplayed/pencil.png')} style={styles.editLogo} resizeMode='cover'/>
                     </View>
                     </View>
             </View>

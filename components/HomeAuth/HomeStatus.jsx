@@ -44,14 +44,14 @@ export default function ActualPointsAndProgress ({navigation}){
                     {width: plastic < 0.5 ?  `${(45) - ((1-plastic)*10)  }%` : '40%',
                     height:  plastic < 0.5 ?  `${(80) - ((1-plastic)*10)}%`: '80%',
                     backgroundColor: plastic < 0.5 ? `rgba(106, 197, 45, ${plastic})`: '#6AC52D'}]}>
-                   <View><Text>Plastico</Text></View>
-                   <View><Text>30%</Text></View>
+                   <View><Text style={styles.fontToPencentage}>Plastico</Text></View>
+                   <View><Text style={styles.fontToPencentage}>30%</Text></View>
                 </View>
                 <View style={[styles.percentageBox,{width: glass < 0.5 ?  `${(45) - ((1-glass)*10)  }%` : '40%',
                     height:  glass < 0.5 ?  `${(80) - ((1-glass)*10)}%`: '80%',
                     backgroundColor:  glass < 0.5 ? `rgba(106, 197, 45, ${glass})`: '#6AC52D' }]}>
-                <View><Text>Vidrio</Text></View>
-                   <View><Text>70%</Text></View>
+                <View><Text style={styles.fontToPencentage}>Vidrio</Text></View>
+                   <View><Text style={styles.fontToPencentage}>70%</Text></View>
                 </View>
             </View>
             <DownBar/>

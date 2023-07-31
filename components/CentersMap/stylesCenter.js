@@ -12,8 +12,6 @@ export default MapDisplay=StyleSheet.create({
     mapContainer:{
         width:'100%',
         height:'80%',
-        borderWidth:1,
-        borderColor:'#000000'
     },
     testS:{
         height:'80%',
@@ -40,6 +38,10 @@ export default MapDisplay=StyleSheet.create({
     },
     textMark:{
         color:'#ffffff'
+    },
+    activitycontainer:{
+        width:'50%',
+        height:'40%'
     }
 
 })

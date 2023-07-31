@@ -169,9 +169,8 @@ export default editProfileStyles=StyleSheet.create({
         marginTop:'5%',
     },
     editLogo:{
-        width:30,
-        height:30,
-        backgroundColor:'#000000'
+        width:33,
+        height:33,
     },  
     redeemLogosImage:{
         width:50,
