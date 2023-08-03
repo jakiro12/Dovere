@@ -39,7 +39,6 @@ export default function SetAndEditUserProfile(){
             </View>
           
             <View style={styles.sliderContent}>
-               
                 <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} pagingEnabled  nestedScrollEnabled={true}>
                     <View style={styles.tagContainer}>
                         <View style={styles.optionTitle}>

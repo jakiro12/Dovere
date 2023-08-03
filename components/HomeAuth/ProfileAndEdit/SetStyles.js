@@ -1,5 +1,5 @@
-import { StyleSheet} from "react-native";
-//el ancho en tagcontainer se debe ajustar al ancho del dispositivo no con unidades
+import { StyleSheet,Dimensions} from "react-native";
+const widthDeviceToModal=Dimensions.get('window').width * 0.85
 export default editProfileStyles=StyleSheet.create({
     container:{
         width:'100%',
@@ -81,7 +81,7 @@ export default editProfileStyles=StyleSheet.create({
         fontWeight:300
     },
     tagContainer:{
-        width:300,
+        width:widthDeviceToModal,
         height:'100%',
         borderColor:'#000000',
         borderWidth:2,
