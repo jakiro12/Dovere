@@ -9,9 +9,13 @@ import HowToUpgrade from './Information/LevelsAndMore';
 import WhenCanI from './Information/RedeemTime';
 import AppCounter from '../Provider/ProviderStatus';
 export default function AksAndAwser(){
-    const{openInfo,setOpenInfo}=useContext(AppCounter)
+    const{openInfo,setOpenInfo,setActiveBtn}=useContext(AppCounter)
     
     const navigation = useNavigation()
+      const goToProfileStats=()=>{
+    setActiveBtn('none')
+    navigation.navigate('See_set_profile')
+  }
     const openAndCloseFirst=(e)=>{
         if(e === openInfo){
             setOpenInfo('')
@@ -45,7 +49,7 @@ export default function AksAndAwser(){
             <View style={styles.container}>
                <View style={styles.navBar}>
               <Text style={styles.appName}>Dovere</Text>
-                <TouchableOpacity style={styles.logoProfile} onPress={()=>{navigation.navigate('See_set_profile')}}>
+                <TouchableOpacity style={styles.logoProfile} onPress={()=>goToProfileStats()}>
                     <Text>A</Text>
                 </TouchableOpacity>
             </View>

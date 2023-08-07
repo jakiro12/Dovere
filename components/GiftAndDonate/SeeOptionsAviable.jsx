@@ -6,12 +6,17 @@ import DownBar from '../DownNavBar/NavOptions';
 import AppCounter from '../Provider/ProviderStatus';
 export default function SeeMyOptions(){
     const navigation=useNavigation()
-    const {redeem,setRedeem}=useContext(AppCounter)
+    const {redeem,setRedeem,setActiveBtn}=useContext(AppCounter)
+    const goToProfileStats=()=>{
+        setActiveBtn('none')
+        navigation.navigate('See_set_profile')
+      }
+
     return(
         <View style={styles.container}>
             <View style={styles.navBar}>
               <Text style={styles.appName}>Dovere</Text>
-                <TouchableOpacity style={styles.logoProfile} onPress={()=>{navigation.navigate('See_set_profile')}}>
+                <TouchableOpacity style={styles.logoProfile} onPress={()=>goToProfileStats()}>
                     <Text>A</Text>
                 </TouchableOpacity>
             </View>

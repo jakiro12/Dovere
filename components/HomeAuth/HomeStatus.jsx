@@ -1,17 +1,22 @@
 import {View, Text,StatusBar,TouchableOpacity} from 'react-native';
 import styles from './StatusStyles';
 import DownBar from '../DownNavBar/NavOptions';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import AppCounter from '../Provider/ProviderStatus';
 export default function ActualPointsAndProgress ({navigation}){
     const[plastic,setPlastic]=useState(0.3)
     const[glass,setGlass]=useState(0.7)
-
+    const{setActiveBtn}=useContext(AppCounter)
+    const goToProfileStats=()=>{
+        setActiveBtn('none')
+        navigation.navigate('See_set_profile')
+      }
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
             <View style={styles.navBar}>
               <Text style={styles.appName}>Dovere</Text>
-                <TouchableOpacity style={styles.logoProfile} onPress={()=>{navigation.navigate('See_set_profile')}}>
+                <TouchableOpacity style={styles.logoProfile} onPress={()=>goToProfileStats()}>
                     <Text>A</Text>
                 </TouchableOpacity>
             </View>
