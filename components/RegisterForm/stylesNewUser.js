@@ -4,29 +4,56 @@ export default containerStyles=StyleSheet.create({
     container:{
         width:'100%',
         height:'100%',
-    },
-    imageBg:{
-        flex:1,
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-    },
+        flexDirection:'column'
+    }, 
     formContianerInp:{
-        width:'55%',
-        height:'50%',
-        borderColor:'#000000',
-        borderWidth:2,
-        marginTop:'25%',
+        width:'80%',
+        height:'90%',
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
         justifyContent:'space-around'
     },
     inptField:{
-        width:'90%',
-        height:25,
+        width:'100%',
+        height:45,
         backgroundColor:'#E7F0E9',
         borderRadius:10,
         paddingLeft:10,
-    }
+        borderColor:'#000000',
+        borderWidth:1
+    },
+    inputContainer:{
+        width:'90%',
+        height:'25%',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-around'
+    },
+    textInput:{
+        fontSize:18,
+    },
+    logoLogin:{
+        width:130,
+        height:130,
+        marginTop:'1%',
+        borderRadius:20,
+        overflow:'hidden'
+       },
+       imageLoginLogo:{
+        width:'100%',
+        height:'100%',
+     },
+     new_into_app:{
+      width:'40%',
+      height:40,
+      backgroundColor:'#6AC52D',
+      display:'flex',
+      justifyContent:'center',
+      alignItems:'center',
+      borderRadius:10,
+     },
 })

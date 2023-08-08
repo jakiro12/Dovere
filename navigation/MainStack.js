@@ -13,6 +13,7 @@ import GiveMyPoints from '../components/GiftAndDonate/DonateRedeem/GiveDonate';
 import AksAndAwser from '../components/Questions/CommonQuestions';
 import styles from './stylesGetIn';
 import { useEffect,useRef } from 'react';
+import FormToCreateANewUser from '../components/RegisterForm/CreateNewUser';
 function HomeScreen({navigation}) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim2 = useRef(new Animated.Value(0)).current;
@@ -74,6 +75,7 @@ function HomeScreen({navigation}) {
           <Stack.Screen name='Redeem_gift' component={RedeemPointsForGift}/>
           <Stack.Screen name='Give_points' component={GiveMyPoints}/>
           <Stack.Screen name='Faq' component={AksAndAwser} />
+          <Stack.Screen name='Create_user' component={FormToCreateANewUser} />
         </Stack.Navigator>
       </NavigationContainer>
       </NewStates>

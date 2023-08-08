@@ -19,7 +19,6 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
    },
    contianerInputs:{
     width:'100%',
-    height:'40%',
     borderBottomWidth:2,
     borderBottomColor:'#6AC52D',
     display:'flex',
