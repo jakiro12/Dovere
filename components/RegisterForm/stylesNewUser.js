@@ -56,4 +56,33 @@ export default containerStyles=StyleSheet.create({
       alignItems:'center',
       borderRadius:10,
      },
+     modalContainer:{
+        width:'100%',
+        height:'100%',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+     },
+     boxAlert:{
+        width:'70%',
+        height:'50%',
+        borderRadius:10,
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-around',
+        alignItems:'center',
+        backgroundColor:'#dddddd'
+     },
+     logoAlert:{
+        width:'50%',
+        height:'40%',
+        borderWidth:2,
+        borderColor:'#000000',
+     },
+     infoAlert:{
+        width:'90%',
+        height:'30%',
+        borderWidth:2,
+        borderColor:'#000000',
+     }
 })
