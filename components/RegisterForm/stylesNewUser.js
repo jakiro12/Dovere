@@ -39,7 +39,6 @@ export default containerStyles=StyleSheet.create({
     logoLogin:{
         width:130,
         height:130,
-        marginTop:'1%',
         borderRadius:20,
         overflow:'hidden'
        },
@@ -64,8 +63,8 @@ export default containerStyles=StyleSheet.create({
         alignItems:'center',
      },
      boxAlert:{
-        width:'70%',
-        height:'50%',
+        width:'80%',
+        height:'60%',
         borderRadius:10,
         display:'flex',
         flexDirection:'column',
@@ -76,13 +75,15 @@ export default containerStyles=StyleSheet.create({
      logoAlert:{
         width:'50%',
         height:'40%',
-        borderWidth:2,
-        borderColor:'#000000',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center'
      },
      infoAlert:{
         width:'90%',
-        height:'30%',
-        borderWidth:2,
-        borderColor:'#000000',
+        height:'35%',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
      }
 })

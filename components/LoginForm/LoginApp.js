@@ -3,8 +3,8 @@ import stylesApp from './stylesLogin';
 import { useState,useEffect } from 'react';
 export default function GetIn({navigation}) {  // pasar navegacion en el boton
   const[dataUser,setDataUser]=useState({
-    userName:'usuario',
-    password:'password'
+    userName:'',
+    password:''
   })
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const handleUserLoginData=(key,value)=>{
@@ -40,11 +40,13 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
         <TextInput  style={stylesApp.inputTextStyles}
         value={dataUser.userName}
         onChangeText={(enteredValue)=>handleUserLoginData('userName',enteredValue)}
+        placeholder='usuario'
         ></TextInput>
         <TextInput  style={stylesApp.inputTextStyles}
          secureTextEntry
           value={dataUser.password}
           onChangeText={(enteredValue)=>handleUserLoginData('password',enteredValue)}
+          placeholder='contraseña'
         ></TextInput>
         <TouchableOpacity style={stylesApp.get_into_app}  onPress={verifyLoginData}>
          <Text>INGRESAR</Text>

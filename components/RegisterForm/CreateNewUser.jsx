@@ -1,27 +1,37 @@
 import { Text,View,Image,TouchableOpacity,Modal } from "react-native";
 import styles from './stylesNewUser'
 import { TextInput } from "react-native";
-import { useState } from "react";
+import { useState,useRef } from "react";
 export default function FormToCreateANewUser(){
     const[dataTo,setDataTo]=useState({
         nameNew:'',
         passNew:''
     })
+    const textColor=useRef('#000000')
+    const imageAlert=useRef('')
     const[seeAlertAction,setSeeAlertAction]=useState(false)
     const[msgAlert,setMsgAlert]=useState('')
     const setNewUserValues=(key,value)=>{
         setDataTo({...dataTo,[key]:value})
     }
     const regexUserName=/^[a-zA-Z]{7,15}$/
-    const regexPass=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,12}$/
+    const regexPass=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,12}$/ //Cambiar porque esta mal esta regex
+    let imageCongrats=require('../imagesDisplayed/recycled_new.jpg')
+    let imageDenied=require('../imagesDisplayed/not_acpt.jpg')
     const verifyDataToSend=()=>{
         console.log(dataTo)
         if(dataTo.nameNew === '' || dataTo.passNew === '' ){
             setMsgAlert('Debes completar todos los campos')
+            textColor.current='#e90c0c'
+            imageAlert.current='denied'
         }else if(regexUserName.test(dataTo.nameNew) && regexPass.test(dataTo.passNew) ){
             setMsgAlert('Usuario creado exitosamente')
+            textColor.current='#6AC52D'
+            imageAlert.current='accepted'
         }else{
             setMsgAlert('Usuario solo acepta 7 a 15 mayusculas y minisculas, el password 8 a 12 mayusculas minisculas y numeros')
+            textColor.current='#e90c0c'
+            imageAlert.current='denied'
         }
        setSeeAlertAction(true)
     }
@@ -39,6 +49,7 @@ export default function FormToCreateANewUser(){
                         style={styles.inptField}
                         value={dataTo.nameNew}
                         onChangeText={(inserting)=>setNewUserValues('nameNew',inserting)}
+                        placeholder="crear usuario"
                     ></TextInput>
                     </View>
                     <View style={styles.inputContainer}>
@@ -47,6 +58,7 @@ export default function FormToCreateANewUser(){
                         style={styles.inptField}
                         value={dataTo.passNew}
                         onChangeText={(inserting)=>setNewUserValues('passNew',inserting)}
+                        placeholder="crear contraseña"
                         secureTextEntry
                     ></TextInput>
                     </View>
@@ -62,12 +74,10 @@ export default function FormToCreateANewUser(){
                     <View style={styles.modalContainer}>
                         <View style={styles.boxAlert}>
                             <View style={styles.logoAlert}>
-                                <Text>
-                                    logo
-                                </Text>
+                                <Image  resizeMode="stretch" style={styles.logoLogin} source={imageAlert.current === 'denied' ? imageDenied : imageCongrats}/>
                             </View>
                             <View style={styles.infoAlert}>
-                                <Text>{msgAlert}</Text>
+                                <Text style={{color:`${textColor.current}`,fontSize:18,fontWeight:'bold'}}>{msgAlert}</Text>
                             </View>
                         </View>
                     </View>
