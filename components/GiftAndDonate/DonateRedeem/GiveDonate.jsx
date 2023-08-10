@@ -17,13 +17,12 @@ export default function GiveMyPoints(){
                 </View>
             </View>
             <View style={styles.boxRedeemGift}>
-                <Text style={styles.textInit}>Estas por dona dinero a empresa</Text>
+                <Text style={styles.textInit}>Doancion para .....</Text>
                     <View style={styles.itemGiftLogo}>
                         <Image resizeMode='contain' style={styles.imageSize} source={require('../../imagesDisplayed/bus.png')}/>
                     </View>
                 <View style={styles.boxInfoGift}>
-                    <Text>Estas a punto de donar 1000 pesos argentinos  
-                            a una ong
+                    <Text>Estas a punto de donar 1000 ARS a una ONG
                     </Text>
                 </View>
                 <TouchableOpacity style={styles.redeemBtnSubmit} onPress={()=>setShowModal(true)}><Text style={styles.textBtn}>Donar</Text></TouchableOpacity>

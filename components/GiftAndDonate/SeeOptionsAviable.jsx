@@ -11,7 +11,40 @@ export default function SeeMyOptions(){
         setActiveBtn('none')
         navigation.navigate('See_set_profile')
       }
-
+      const dataGift=[{
+        id:1,
+        name_product:'pasaje',
+        quantity_aviable:22,
+        points_request:100
+      },
+     { id:2,
+      name_product:'recargas',
+      quantity_aviable:11,
+      points_request:2000
+    },
+    { id:3,
+        name_product:'LTC',
+        quantity_aviable:25,
+        points_request:4000
+      },
+    ]
+    const dataDonate=[
+        {
+            id:1,
+            company_name:'Green',
+            points_redeem:1000,
+        },
+        {
+            id:2,
+            company_name:'Nestle',
+            points_redeem:500,
+        },
+        {
+            id:3,
+            company_name:'Q&A',
+            points_redeem:1500,
+        },
+    ]
     return(
         <View style={styles.container}>
             <View style={styles.navBar}>
@@ -44,30 +77,30 @@ export default function SeeMyOptions(){
                     
                 </View>
                 <ScrollView style={styles.scrollOptions} showsVerticalScrollIndicator={false}>
-                   {redeem.redeemDefault ?  <View style={styles.boxTicket}>
+                   {redeem.redeemDefault ?  dataGift.map((e)=>(<View style={styles.boxTicket} key={e.id}>
                         <View style={styles.ticketLogo}>
                             <Image source={require('../imagesDisplayed/ticket.png')} resizeMode='cover' />
                         </View>
                         <View style={styles.ticketInfo}>
-                            <Text>1 Pasaje</Text>
-                            <Text>100 puntos</Text>
+                            <Text>{e.quantity_aviable} {e.name_product}</Text>
+                            <Text>{e.points_request} puntos</Text>
                             <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift')}>
                             <Text>Ver</Text>
                             </TouchableOpacity>
                         </View>
-                    </View> :
-                    <View style={styles.boxTicket}>
+                    </View>)) :
+                  dataDonate.map((e)=> (<View style={styles.boxTicket} key={e.id}>
                     <View style={styles.ticketLogo}>
                         <Image source={require('../imagesDisplayed/Give.png')} resizeMode='cover' />
                     </View>
                     <View style={styles.ticketInfo}>
-                        <Text>Fundacion</Text>
-                        <Text>$100 (100pts)</Text>
+                        <Text>{e.company_name}</Text>
+                        <Text>$100 ({e.points_redeem})</Text>
                         <TouchableOpacity style={styles.redeemPoints}  onPress={()=>navigation.navigate('Give_points')}>
                         <Text>Ver</Text>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </View>))
                     }
                    
             

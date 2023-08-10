@@ -58,11 +58,12 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
     boxInfoGift:{
         width:'90%',
         height:'20%',
-        borderWidth:2,
-        borderColor:'#000000',
+        borderRadius:10,
         display:'flex',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
+        backgroundColor:'#E7F0E9',
+
     },
     redeemBtnSubmit:{
         width:'60%',
@@ -89,7 +90,7 @@ export default createTicketsGiftAndDonate=StyleSheet.create({
         display:'flex',
         justifyContent:'space-around',
         alignItems:'center',
-       
+        borderRadius:10,
     },
     modalText:{
         fontSize:22,
