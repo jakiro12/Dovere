@@ -58,7 +58,7 @@ function HomeScreen({navigation}) {
   
   const Stack = createNativeStackNavigator();
   
-  function Test() {
+  function DovereApp() {
     return (
 <NewStates>
       <NavigationContainer>
@@ -82,4 +82,4 @@ function HomeScreen({navigation}) {
     );
   }
   
-  export default Test;
+  export default DovereApp;

@@ -1,12 +1,25 @@
 import { Text,View,Image,TouchableOpacity,Modal } from "react-native";
 import styles from './stylesNewUser'
 import { TextInput } from "react-native";
-import { useState,useRef } from "react";
+import { useState,useRef,useEffect } from "react";
+import { supabase } from "../../supabeConn/supabase";
 export default function FormToCreateANewUser(){
     const[dataTo,setDataTo]=useState({
         nameNew:'',
         passNew:''
     })
+    const[post,setPost]=useState([])
+    useEffect(()=>{
+        const fetchPost=async()=>{
+        const {data,error}= await supabase.from('users_data').select('*')
+        if(error){
+            console.log(error)
+        }else{
+            setPost(data)
+        }
+        }
+        fetchPost()
+    },[])
     const textColor=useRef('#000000')
     const imageAlert=useRef('')
     const[seeAlertAction,setSeeAlertAction]=useState(false)
@@ -15,11 +28,11 @@ export default function FormToCreateANewUser(){
         setDataTo({...dataTo,[key]:value})
     }
     const regexUserName=/^[a-zA-Z]{7,15}$/
-    const regexPass=/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,12}$/ //Cambiar porque esta mal esta regex
+    const regexPass=/^[a-zA-Z0-9]{8,12}$/ //Cambiar porque esta mal esta regex
     let imageCongrats=require('../imagesDisplayed/recycled_new.jpg')
     let imageDenied=require('../imagesDisplayed/not_acpt.jpg')
     const verifyDataToSend=()=>{
-        console.log(dataTo)
+        console.log(post)
         if(dataTo.nameNew === '' || dataTo.passNew === '' ){
             setMsgAlert('Debes completar todos los campos')
             textColor.current='#e90c0c'
