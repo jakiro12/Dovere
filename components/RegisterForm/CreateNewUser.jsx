@@ -16,9 +16,10 @@ export default function FormToCreateANewUser(){
             console.log(error)
         }else{
             setPost(data)
-        }
+             } 
         }
         fetchPost()
+      
     },[])
     const textColor=useRef('#000000')
     const imageAlert=useRef('')
@@ -31,8 +32,7 @@ export default function FormToCreateANewUser(){
     const regexPass=/^[a-zA-Z0-9]{8,12}$/ //Cambiar porque esta mal esta regex
     let imageCongrats=require('../imagesDisplayed/recycled_new.jpg')
     let imageDenied=require('../imagesDisplayed/not_acpt.jpg')
-    const verifyDataToSend=()=>{
-        console.log(post)
+    const verifyDataToSend=async()=>{
         if(dataTo.nameNew === '' || dataTo.passNew === '' ){
             setMsgAlert('Debes completar todos los campos')
             textColor.current='#e90c0c'
@@ -40,7 +40,11 @@ export default function FormToCreateANewUser(){
         }else if(regexUserName.test(dataTo.nameNew) && regexPass.test(dataTo.passNew) ){
             setMsgAlert('Usuario creado exitosamente')
             textColor.current='#6AC52D'
-            imageAlert.current='accepted'
+            imageAlert.current='accepted'  
+            let checkAviable=post.filter((e)=> e.name_user === dataTo.nameNew) 
+            if(checkAviable.length > 0) return alert('ya existe elija otro') //agregar otro modal
+            const{data,error}=await supabase.from('users_data').insert([{name_user:dataTo.nameNew,pass_user:dataTo.passNew}],{})
+            if(error) console.log(error)
         }else{
             setMsgAlert('Usuario solo acepta 7 a 15 mayusculas y minisculas, el password 8 a 12 mayusculas minisculas y numeros')
             textColor.current='#e90c0c'
