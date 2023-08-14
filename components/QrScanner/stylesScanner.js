@@ -44,4 +44,21 @@ export default scanerStyles=StyleSheet.create({
         justifyContent:'center',
         marginRight:10,
     },
+    containerCameraPermissions:{
+      width:'100%',
+      height:'100%',
+      display:'flex',
+      alignItems:'center',
+      justifyContent: 'center',
+    },
+    modalPerCamera:{
+      width:'90%',
+      height:'30%',
+      backgroundColor:'#E7F0E9',
+      borderRadius:10,
+      display:'flex',
+      alignItems:'center',
+      justifyContent:'space-around',
+      flexDirection:'column'
+    }
 })

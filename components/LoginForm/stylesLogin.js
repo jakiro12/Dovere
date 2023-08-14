@@ -90,6 +90,6 @@ export default containerStyles=StyleSheet.create({ //los exporto e importo con e
    imageLoginLogo:{
       width:'100%',
       height:'100%',
-   }
+   },
 })
 

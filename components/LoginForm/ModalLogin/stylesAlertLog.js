@@ -1,0 +1,48 @@
+import {StyleSheet} from 'react-native';
+
+export default stylesModalAlert=StyleSheet.create({
+    sizeModal:{
+        width:'100%',
+        height:'100%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        backgroundColor:'#00000060'
+    },
+    boxAlert:{
+        width:'90%',
+        height:'50%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    boxDisplayit:{
+        width:'100%',
+        height:'60%',
+        backgroundColor:'#E7F0E9',
+        borderRadius:10,
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center'
+    },
+    textDisplayIt:{
+        fontSize:20,
+        width:'80%',
+        height:'50%',
+        color:'#e90c0c',
+        textAlign:'center',
+    },
+    closeAlertModal:{
+        width:120,
+        height:40,
+        borderColor:'#000000',
+        borderWidth:2,
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:5
+        },
+        fontCloseMenu:{
+            fontSize:18,
+        }
+})

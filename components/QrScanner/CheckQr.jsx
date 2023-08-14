@@ -25,9 +25,12 @@ export default function OpenQrReader() {
   if (!permission.granted) {
     // Camera permissions are not granted yet
     return (
-      <View style={styles.container}>
-        <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
-        <Button onPress={requestPermission} title="grant permission" />
+      <View style={styles.containerCameraPermissions}>
+        <View style={styles.modalPerCamera}>
+        <Text style={{ textAlign: 'center',fontSize:18 }}>Esta funcionalidad requiere de la habilitacion de 
+        los permisos de camara para escanear codigos</Text>
+        <Button onPress={requestPermission} title="Habilitar" />
+        </View>
       </View>
     );
   }
