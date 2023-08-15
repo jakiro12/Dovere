@@ -3,7 +3,7 @@ import { Button, Text, TouchableOpacity, View } from 'react-native';
 import styles from './stylesScanner';
 import DownBar from '../DownNavBar/NavOptions';
 import { useNavigation,useIsFocused } from '@react-navigation/native';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import AppCounter from '../Provider/ProviderStatus';
 
 export default function OpenQrReader() {
@@ -34,7 +34,13 @@ export default function OpenQrReader() {
       </View>
     );
   }
-
+  const handleBarCodeScanned = ({ type, data }) => {
+    // Aquí puedes realizar acciones con los datos del código de barras leído
+    console.log(`Tipo de código: ${type}`);
+    console.log(`Datos del código: ${data}`);
+    alert(data)
+    // Realiza las acciones que necesites con los datos del código de barras
+  };
 
 
   return (
@@ -47,8 +53,10 @@ export default function OpenQrReader() {
             </View>
       <View style={styles.camerCotnainer}>
       {isFocused && (
-          <Camera style={styles.camera} type={CameraType.back} >
-          </Camera>
+          <Camera style={styles.camera} 
+          type={CameraType.back}
+          onBarCodeScanned={handleBarCodeScanned} />
+       
         )}
       </View>
       <DownBar/>

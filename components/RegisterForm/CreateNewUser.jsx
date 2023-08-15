@@ -42,7 +42,12 @@ export default function FormToCreateANewUser(){
             textColor.current='#6AC52D'
             imageAlert.current='accepted'  
             let checkAviable=post.filter((e)=> e.name_user === dataTo.nameNew) 
-            if(checkAviable.length > 0) return alert('ya existe elija otro') //agregar otro modal
+            if(checkAviable.length > 0){
+                setSeeAlertAction(true) 
+               setMsgAlert('Nombre de usuario no disponible')//agregar otro modal
+               textColor.current='#e90c0c'
+               return
+            }
             const{data,error}=await supabase.from('users_data').insert([{name_user:dataTo.nameNew,pass_user:dataTo.passNew}],{})
             if(error) console.log(error)
         }else{
