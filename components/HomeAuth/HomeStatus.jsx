@@ -1,16 +1,17 @@
 import {View, Text,StatusBar,TouchableOpacity} from 'react-native';
 import styles from './StatusStyles';
 import DownBar from '../DownNavBar/NavOptions';
-import { useState,useContext } from 'react';
+import { useState,useContext} from 'react';
 import AppCounter from '../Provider/ProviderStatus';
 export default function ActualPointsAndProgress ({navigation}){
     const[plastic,setPlastic]=useState(0.3)
     const[glass,setGlass]=useState(0.7)
-    const{setActiveBtn}=useContext(AppCounter)
+    const{setActiveBtn,dataPoints,nameUserLogged}=useContext(AppCounter)
     const goToProfileStats=()=>{
         setActiveBtn('none')
         navigation.navigate('See_set_profile')
       }
+     
     return (
         <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
@@ -18,14 +19,14 @@ export default function ActualPointsAndProgress ({navigation}){
               <Text style={styles.appName}>Dovere</Text>
                 <TouchableOpacity style={styles.logoProfile} onPress={()=>goToProfileStats()}>
                     <Text>A</Text>
-                </TouchableOpacity>
+                </TouchableOpacity>{console.log(dataPoints)}
             </View>
             <View style={styles.statusAndPoints}>
-                <View style={styles.userWelcome}><Text style={styles.fontWelcomeUser}>Hola Usuario</Text></View>
+                <View style={styles.userWelcome}><Text style={styles.fontWelcomeUser}>Hola {nameUserLogged}</Text></View>
                 <View style={styles.userStats}>
                     <View style={styles.pointContainer}>
                         <Text style={styles.poinsText}>Puntaje Acumulado</Text>
-                        <Text style={styles.poinsText}>200</Text>
+                        <Text style={styles.poinsText}>{dataPoints[0].points}</Text>
                         </View>
                     <View style={styles.growStatus}>
                         <Text style={styles.growText}>Crecimiento</Text>

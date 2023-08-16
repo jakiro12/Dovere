@@ -1,9 +1,11 @@
 import {  Text, TextInput, TouchableOpacity, View,Image,Keyboard,Modal} from 'react-native';
 import stylesApp from './stylesLogin';
-import { useState,useEffect} from 'react';
+import { useState,useEffect,useContext} from 'react';
 import { supabase } from '../../supabeConn/supabase';
 import ModalForLogin from './ModalLogin/AlertLog';
+import AppCounter from '../Provider/ProviderStatus';
 export default function GetIn({navigation}) {  // pasar navegacion en el boton
+  const{setNameUserLogged}=useContext(AppCounter)
   const[dataUser,setDataUser]=useState({
     userName:'',
     password:''
@@ -17,11 +19,15 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
       const {data,error} = await supabase.from('users_data').select(`name_user,pass_user`)
      let find_U_N=data.filter((e)=> e.name_user === dataUser.userName)
       if(find_U_N.length > 0 && find_U_N[0].pass_user === dataUser.password){
+        setNameUserLogged(dataUser.userName)
       navigation.navigate('Home_login')
       }else{
         setShowAlert(true)
-         
       }
+  }
+  const initWithGoogle=async()=>{
+ console.log('hoasdf')   
+    //debo redireccionar a un link externo a la app para crear un token de acceso
   }
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
@@ -72,9 +78,9 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
       
       <View style={stylesApp.containerAuthWithMedias}>
           <View style={stylesApp.containerLogo_F_G}>
-            <View style={stylesApp.bothLogos}>
+            <TouchableOpacity style={stylesApp.bothLogos} onPress={initWithGoogle}>
                 <Image source={{uri:urlLogoGoogle}} resizeMode='cover' style={stylesApp.svgStyles}/>
-            </View>
+            </TouchableOpacity>
             <View style={stylesApp.bothLogos}>
             <Image source={{uri:urlLogoFacebook}}  style={stylesApp.svgStyles}/>
             </View>
