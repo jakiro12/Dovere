@@ -1,5 +1,5 @@
 import { Camera, CameraType } from 'expo-camera';
-import { Button, Text, TouchableOpacity, View } from 'react-native';
+import { Button, Modal, Text, TouchableOpacity, View } from 'react-native';
 import styles from './stylesScanner';
 import DownBar from '../DownNavBar/NavOptions';
 import { useNavigation,useIsFocused } from '@react-navigation/native';
@@ -11,6 +11,8 @@ export default function OpenQrReader() {
   const navigation = useNavigation()
   const isFocused = useIsFocused()
   const {setActiveBtn}=useContext(AppCounter)
+  const [scannedData, setScannedData] = useState(null); // State to store scanned data
+  const [scanningEnabled, setScanningEnabled] = useState(true); // State to control scanning
 
   const goToProfileStats=()=>{
     setActiveBtn('none')
@@ -35,13 +37,17 @@ export default function OpenQrReader() {
     );
   }
   const handleBarCodeScanned = ({ type, data }) => {
-    // Aquí puedes realizar acciones con los datos del código de barras leído
+    if (scanningEnabled) {
+      setScanningEnabled(false); // Disable further scanning
+      setScannedData(data); // Store scanned data
     console.log(`Tipo de código: ${type}`);
     console.log(`Datos del código: ${data}`);
-    alert(data)
-    // Realiza las acciones que necesites con los datos del código de barras
+    }
   };
-
+  const handleCloseModalScanned=()=>{
+    setScanningEnabled(true)
+    setScannedData(null)
+  }
 
   return (
     <View style={styles.container}>
@@ -56,8 +62,20 @@ export default function OpenQrReader() {
           <Camera style={styles.camera} 
           type={CameraType.back}
           onBarCodeScanned={handleBarCodeScanned} />
-       
         )}
+        <Modal
+        visible={scannedData !== null ? true : false}
+        animationType='none'
+        onRequestClose={handleCloseModalScanned}
+        >
+          <View style={styles.containerModalCameraRedeem}>
+          <View style={styles.containerCameraPermissions}>
+        <View style={styles.modalPerCamera}>
+        <Text style={{ textAlign: 'center',fontSize:18 }}>{scannedData}</Text>
+        </View>
+      </View>
+          </View>
+        </Modal>
       </View>
       <DownBar/>
     </View>

@@ -7,7 +7,6 @@ export default scanerStyles=StyleSheet.create({
         display:'flex',
         alignItems:'center',
         justifyContent: 'space-between',
-
       },
       camerCotnainer:{
         width:'80%',
@@ -60,5 +59,12 @@ export default scanerStyles=StyleSheet.create({
       alignItems:'center',
       justifyContent:'space-around',
       flexDirection:'column'
+    },
+    containerModalCameraRedeem:{
+      width:'100%',
+      height:'100%',
+      display:'flex',
+      alignItems:'center',
+      justifyContent: 'center',
     }
 })
