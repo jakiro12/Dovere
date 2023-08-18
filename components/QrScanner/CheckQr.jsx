@@ -37,11 +37,10 @@ export default function OpenQrReader() {
     );
   }
   const handleBarCodeScanned = ({ type, data }) => {
-    if (scanningEnabled) {
-      setScanningEnabled(false); // Disable further scanning
-      setScannedData(data); // Store scanned data
+    if (scanningEnabled && type === 256) {
+      setScanningEnabled(false); // Desahbilita futuros escaneos
+      setScannedData(data);
     console.log(`Tipo de código: ${type}`);
-    console.log(`Datos del código: ${data}`);
     }
   };
   const handleCloseModalScanned=()=>{

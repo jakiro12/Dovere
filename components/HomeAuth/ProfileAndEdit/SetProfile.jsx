@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useContext } from 'react';
 import AppCounter from '../../Provider/ProviderStatus';
 export default function SetAndEditUserProfile(){
-    const {setRedeem}=useContext(AppCounter)
+    const {setRedeem,dataPoints}=useContext(AppCounter)
     const navigation=useNavigation()
     const goToRedeemGift=()=>{
         navigation.navigate('Redeem_Or_Donate')
@@ -46,7 +46,7 @@ export default function SetAndEditUserProfile(){
                             <ArrowBorderRight/>
                         </View>
                         <View>
-                            <Text style={styles.fontPointsAviable}>Puntos disponibles: 1200</Text>
+                            <Text style={styles.fontPointsAviable}>Puntos disponibles: {dataPoints[0].points}</Text>
                         </View>
                         <View style={styles.boxBtn}>
                            <TouchableOpacity style={styles.btnRedeem} onPress={()=>goToRedeemGift()}>
@@ -72,6 +72,9 @@ export default function SetAndEditUserProfile(){
                         <View style={styles.actualAmount}>
                              <Text style={styles.allBottles}>4</Text>
                             <Text style={styles.fontBottles}>Botellas recicladas</Text>
+                        </View>
+                        <View style={styles.totalBotles}>
+                            <Text style={styles.allBottles}>{dataPoints[0].glass_botles + dataPoints[0].plastic_botles}</Text>
                         </View>
                         </View>
                     <View style={styles.tagContainer}>

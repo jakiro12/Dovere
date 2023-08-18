@@ -6,25 +6,26 @@ import DownBar from '../DownNavBar/NavOptions';
 import AppCounter from '../Provider/ProviderStatus';
 export default function SeeMyOptions(){
     const navigation=useNavigation()
-    const {redeem,setRedeem,setActiveBtn}=useContext(AppCounter)
+    const {redeem,setRedeem,setActiveBtn,dataPoints}=useContext(AppCounter)
     const goToProfileStats=()=>{
         setActiveBtn('none')
         navigation.navigate('See_set_profile')
       }
+
       const dataGift=[{
         id:1,
         name_product:'pasaje',
-        quantity_aviable:22,
+        quantity_aviable:1000,
         points_request:100
       },
      { id:2,
-      name_product:'recargas',
-      quantity_aviable:11,
+      name_product:'recarga',
+      quantity_aviable:1500,
       points_request:2000
     },
     { id:3,
         name_product:'LTC',
-        quantity_aviable:25,
+        quantity_aviable:1,
         points_request:4000
       },
     ]
@@ -57,7 +58,7 @@ export default function SeeMyOptions(){
                 <View style={styles.userStats}>
                         <View style={styles.pointContainer}>
                             <Text style={styles.poinsText}>Puntaje Acumulado</Text>
-                            <Text style={styles.poinsText}>200</Text>
+                            <Text style={styles.poinsText}>{dataPoints[0].points}</Text>
                             </View>
                         <View style={styles.growStatus}>
                             <Text style={styles.growText}>Crecimiento</Text>
@@ -82,9 +83,9 @@ export default function SeeMyOptions(){
                             <Image source={require('../imagesDisplayed/ticket.png')} resizeMode='cover' />
                         </View>
                         <View style={styles.ticketInfo}>
-                            <Text>{e.quantity_aviable} {e.name_product}</Text>
+                            <Text> {e.name_product} ({e.quantity_aviable})</Text>
                             <Text>{e.points_request} puntos</Text>
-                            <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift')}>
+                            <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift',{nameProductToRedeem:e.name_product})}>
                             <Text>Ver</Text>
                             </TouchableOpacity>
                         </View>
@@ -96,15 +97,12 @@ export default function SeeMyOptions(){
                     <View style={styles.ticketInfo}>
                         <Text>{e.company_name}</Text>
                         <Text>$100 ({e.points_redeem})</Text>
-                        <TouchableOpacity style={styles.redeemPoints}  onPress={()=>navigation.navigate('Give_points')}>
+                        <TouchableOpacity style={styles.redeemPoints}  onPress={()=> navigation.navigate('Give_points',{donateToCompany:e.company_name})}>
                         <Text>Ver</Text>
                         </TouchableOpacity>
                     </View>
                 </View>))
                     }
-                   
-            
-                   
                 </ScrollView>
             </View>
             <DownBar/>

@@ -83,7 +83,7 @@ export default GiveMyPoints=StyleSheet.create({
     modalContainer:{
         width:'80%',
         height:'40%',
-        backgroundColor:'#DADD33',
+        backgroundColor:'#dddddd',
         alignSelf:'center',
         marginTop:'50%',
         display:'flex',

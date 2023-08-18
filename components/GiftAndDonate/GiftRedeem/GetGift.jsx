@@ -3,9 +3,11 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import DownBar from '../../DownNavBar/NavOptions';
 import styles from './styleGift'
 import { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation,useRoute } from '@react-navigation/native';
 export default function RedeemPointsForGift(){
     const navigation=useNavigation()
+    const route=useRoute()
+    const{nameProductToRedeem}=route.params;
     const[showModal,setShowModal]=useState(false)
     return(
         <View  style={styles.container}>
@@ -16,9 +18,9 @@ export default function RedeemPointsForGift(){
                 </View>
             </View>
             <View style={styles.boxRedeemGift}>
-                <Text style={styles.textInit}>Estas por canjear una recarga en la tarjeta</Text>
+                <Text style={styles.textInit}>Estas por canjear una {nameProductToRedeem}</Text>
                     <View style={styles.itemGiftLogo}>
-                        <Image resizeMode='contain' style={styles.imageSize} source={require('../../imagesDisplayed/bus.png')}/>
+                        <Image resizeMode='contain' style={styles.imageSize} source={require('../../imagesDisplayed/redeemGift.png')}/>
                     </View>
                 <View style={styles.boxInfoGift}>
                     <Text>Estas a punto de canjear 1000 puntos por un equivalente a $100 
@@ -30,16 +32,14 @@ export default function RedeemPointsForGift(){
             <Modal 
                 animationType='slide'
                 visible={showModal}
-                transparent={false}
-                onRequestClose={()=>setShowModal(false)}
-                
+                transparent={false}               
             >
                 <View style={styles.modalContainer}>
                     <View style={styles.checkSucces}>
                     <Icon name="check" size={30} color="#ffffff" />
                     </View>
                     <Text style={styles.modalText}>
-                        Has canjeado exitosamente nombre del producto
+                        Has canjeado exitosamente un {nameProductToRedeem}
                     </Text>
                     <TouchableOpacity style={styles.modalClose} onPress={()=>navigation.navigate('Redeem_Or_Donate')}>
                         <Text style={styles.fontModalClose}>Volver</Text>

@@ -35,14 +35,14 @@ export default stylesModalAlert=StyleSheet.create({
     closeAlertModal:{
         width:120,
         height:40,
-        borderColor:'#000000',
-        borderWidth:2,
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        borderRadius:5
+        borderRadius:5,
+        backgroundColor:'#953ad2'
         },
         fontCloseMenu:{
             fontSize:18,
+            color:'#ffffff'
         }
 })

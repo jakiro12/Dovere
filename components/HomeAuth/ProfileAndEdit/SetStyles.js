@@ -160,6 +160,13 @@ export default editProfileStyles=StyleSheet.create({
         fontSize:26,
         fontWeight:700
     },
+    totalBotles:{
+        width:'80%',
+        height:'30%',
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center'
+    },
     fontBottles:{
         fontSize:20,
     },
