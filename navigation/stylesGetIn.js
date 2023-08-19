@@ -7,12 +7,12 @@ export default landingDesign=StyleSheet.create({
         display:'flex',
         alignItems:'center',
         justifyContent:'space-around',
-        backgroundColor:'#DADD33',
+        backgroundColor:'#DDDDDD',
     },
     getInBtn:{
         width:100,
         height:30,
-        borderBottomColor:'#ffffff',
+        borderBottomColor:'#000000',
         borderBottomWidth:2,
         display:'flex',
         justifyContent:'center',
@@ -27,12 +27,12 @@ export default landingDesign=StyleSheet.create({
         width:'90%',
         height:70,
         fontSize:24,
-        color:'#ffffff',
+        color:'#000000',
         fontWeight:'bold',
     },
     textBtn:{
         fontSize:22,
-        color:'#ffffff'
+        color:'#000000'
     },
     imgLogoSize:{
         width:'100%',

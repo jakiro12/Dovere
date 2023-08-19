@@ -40,7 +40,6 @@ function HomeScreen({navigation}) {
     return (
       <View style={styles.container}>
             <StatusBar barStyle="dark-content" backgroundColor="#E3E4D3"  />
-
        <Animated.Text style={[styles.infoStart,{opacity:fadeAnim}]}>Dirigete a tu centro de reciclaje mas cercano</Animated.Text>
        <Animated.Text style={[styles.infoStart,{opacity:fadeAnim2}]}>Ingresa el envase a reciclar</Animated.Text>
        <Animated.Text style={[styles.infoStart,{opacity:fadeAnim3}]}>Escanea el QR y sumá puntos</Animated.Text>
@@ -50,8 +49,6 @@ function HomeScreen({navigation}) {
         <TouchableOpacity style={styles.getInBtn} activeOpacity={1} onPress={()=>{navigation.navigate('log')}}>
           <Text style={styles.textBtn}>SALTAR</Text>
           </TouchableOpacity>
-       
-     
       </View>
     );
   }
