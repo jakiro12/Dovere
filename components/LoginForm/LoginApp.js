@@ -1,4 +1,4 @@
-import {  Text, TextInput, TouchableOpacity, View,Image,Keyboard,Modal} from 'react-native';
+import {  Text, TextInput, TouchableOpacity, View,Image,Keyboard,Linking} from 'react-native';
 import stylesApp from './stylesLogin';
 import { useState,useEffect,useContext} from 'react';
 import { supabase } from '../../supabeConn/supabase';
@@ -28,6 +28,13 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
   const initWithGoogle=async()=>{
  console.log('hoasdf')   
     //debo redireccionar a un link externo a la app para crear un token de acceso
+  }
+  const initWithFacebook=async()=>{
+    const{data,error}= await supabase.auth.signInWithOAuth({
+      provider:'facebook',
+    })
+    if(error)return console.log(error)
+    Linking.openURL(data.url)
   }
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
@@ -81,9 +88,9 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
             <TouchableOpacity style={stylesApp.bothLogos} onPress={initWithGoogle}>
                 <Image source={{uri:urlLogoGoogle}} resizeMode='cover' style={stylesApp.svgStyles}/>
             </TouchableOpacity>
-            <View style={stylesApp.bothLogos}>
+            <TouchableOpacity style={stylesApp.bothLogos} onPress={initWithFacebook}>
             <Image source={{uri:urlLogoFacebook}}  style={stylesApp.svgStyles}/>
-            </View>
+            </TouchableOpacity>
           </View>
             <Text>Tambien puedes ingresar con tus redes</Text>
           
