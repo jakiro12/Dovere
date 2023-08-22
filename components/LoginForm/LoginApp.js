@@ -1,17 +1,23 @@
-import {  Text, TextInput, TouchableOpacity, View,Image,Keyboard,Linking} from 'react-native';
+import {  Text, TextInput, TouchableOpacity, View,Image,Keyboard} from 'react-native';
 import stylesApp from './stylesLogin';
 import { useState,useEffect,useContext} from 'react';
 import { supabase } from '../../supabeConn/supabase';
 import ModalForLogin from './ModalLogin/AlertLog';
 import AppCounter from '../Provider/ProviderStatus';
+import * as Facebook from 'expo-auth-session/providers/facebook';
+import * as WebBrowserRequest from 'expo-web-browser'
 export default function GetIn({navigation}) {  // pasar navegacion en el boton
   const{setNameUserLogged}=useContext(AppCounter)
+  WebBrowserRequest.maybeCompleteAuthSession()
   const[dataUser,setDataUser]=useState({
     userName:'',
     password:''
   })
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const [showAlert,setShowAlert]=useState(false)
+  const[request,response,promtAsync]=Facebook.useAuthRequest({
+    clientId:"982902083047954",
+  })
   const handleUserLoginData=(key,value)=>{
     setDataUser({...dataUser,[key]:value})
   }
@@ -34,8 +40,12 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
       provider:'facebook',
     })
     if(error)return console.log(error)
-    Linking.openURL(data.url)
+    let result = await WebBrowserRequest.openBrowserAsync(data.url)
+  if(result.type === "opened"){
+    const responseFromFacebook=await promtAsync()
+      if(responseFromFacebook) navigation.navigate('Home_login')
   }
+}
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
       setKeyboardVisible(true);
