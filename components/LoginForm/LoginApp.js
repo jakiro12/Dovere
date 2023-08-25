@@ -16,7 +16,7 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const [showAlert,setShowAlert]=useState(false)
   const[request,response,promtAsync]=Facebook.useAuthRequest({
-    clientId:"982902083047954",
+    clientId:"602922972040788",
   })
   const handleUserLoginData=(key,value)=>{
     setDataUser({...dataUser,[key]:value})
@@ -42,8 +42,8 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
     if(error)return console.log(error)
     let result = await WebBrowserRequest.openBrowserAsync(data.url)
   if(result.type === "opened"){
-    const responseFromFacebook=await promtAsync()
-      if(responseFromFacebook) navigation.navigate('Home_login')
+  const responseFromFacebook=await promtAsync()
+      if(responseFromFacebook.type !== "success") navigation.navigate('Home_login')
   }
 }
   useEffect(() => {

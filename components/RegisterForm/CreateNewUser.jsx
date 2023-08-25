@@ -19,8 +19,25 @@ export default function FormToCreateANewUser(){
              } 
         }
         fetchPost()
-      
     },[])
+    const regexPass=/^[a-zA-Z0-9]{7,12}$/ //Cambiar porque esta mal esta regex
+    const signUpWithEmail=async() =>{
+        if(dataTo.nameNew === '' || dataTo.passNew === '' ){
+            setMsgAlert('Debes completar todos los campos')
+            textColor.current='#e90c0c'
+            imageAlert.current='denied'}
+            else if(regexPass.test(dataTo.passNew) && dataTo.nameNew.length > 0 ){
+                const { error,data } = await supabase.auth.signUp({
+                    email: dataTo.nameNew,
+                    password: dataTo.passNew,
+                  })
+                  if (error) setMsgAlert(error.message)
+                  console.log(data)
+            }else{
+                console.log('error de conexion')
+            }
+        setSeeAlertAction(true)
+      }
     const textColor=useRef('#000000')
     const imageAlert=useRef('')
     const[seeAlertAction,setSeeAlertAction]=useState(false)
@@ -28,35 +45,10 @@ export default function FormToCreateANewUser(){
     const setNewUserValues=(key,value)=>{
         setDataTo({...dataTo,[key]:value})
     }
-    const regexUserName=/^[a-zA-Z]{7,15}$/
-    const regexPass=/^[a-zA-Z0-9]{8,12}$/ //Cambiar porque esta mal esta regex
+  
     let imageCongrats=require('../imagesDisplayed/recycled_new.jpg')
     let imageDenied=require('../imagesDisplayed/not_acpt.jpg')
-    const verifyDataToSend=async()=>{
-        if(dataTo.nameNew === '' || dataTo.passNew === '' ){
-            setMsgAlert('Debes completar todos los campos')
-            textColor.current='#e90c0c'
-            imageAlert.current='denied'
-        }else if(regexUserName.test(dataTo.nameNew) && regexPass.test(dataTo.passNew) ){
-            setMsgAlert('Usuario creado exitosamente')
-            textColor.current='#6AC52D'
-            imageAlert.current='accepted'  
-            let checkAviable=post.filter((e)=> e.name_user === dataTo.nameNew) 
-            if(checkAviable.length > 0){
-                setSeeAlertAction(true) 
-               setMsgAlert('Nombre de usuario no disponible')//agregar otro modal
-               textColor.current='#e90c0c'
-               return
-            }
-            const{data,error}=await supabase.from('users_data').insert([{name_user:dataTo.nameNew,pass_user:dataTo.passNew}],{})
-            if(error) console.log(error)
-        }else{
-            setMsgAlert('Usuario solo acepta 7 a 15 mayusculas y minisculas, el password 8 a 12 mayusculas minisculas y numeros')
-            textColor.current='#e90c0c'
-            imageAlert.current='denied'
-        }
-       setSeeAlertAction(true)
-    }
+  
     return(
         <View style={styles.container}>
                 <View style={styles.formContianerInp}>
@@ -84,7 +76,7 @@ export default function FormToCreateANewUser(){
                         secureTextEntry
                     ></TextInput>
                     </View>
-                    <TouchableOpacity style={styles.new_into_app} activeOpacity={1} onPress={verifyDataToSend}>
+                    <TouchableOpacity style={styles.new_into_app} activeOpacity={1} onPress={signUpWithEmail}>
                         <Text >CREAR</Text>
                     </TouchableOpacity>
                 </View>

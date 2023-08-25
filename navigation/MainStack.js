@@ -6,7 +6,7 @@ import ActualPointsAndProgress from '../components/HomeAuth/HomeStatus';
 import SetAndEditUserProfile from '../components/HomeAuth/ProfileAndEdit/SetProfile';
 import OpenQrReader from '../components/QrScanner/CheckQr';
 import SeeMyOptions from '../components/GiftAndDonate/SeeOptionsAviable';
-import { NewStates } from '../components/Provider/ProviderStatus';
+import  { NewStates } from '../components/Provider/ProviderStatus';
 import NearbyCenters from '../components/CentersMap/SeeCenters';
 import RedeemPointsForGift from '../components/GiftAndDonate/GiftRedeem/GetGift';
 import GiveMyPoints from '../components/GiftAndDonate/DonateRedeem/GiveDonate';
@@ -18,7 +18,6 @@ function HomeScreen({navigation}) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const fadeAnim2 = useRef(new Animated.Value(0)).current;
   const fadeAnim3 = useRef(new Animated.Value(0)).current;
-
 
   useEffect(() => {
     Animated.timing(fadeAnim, {
@@ -53,9 +52,10 @@ function HomeScreen({navigation}) {
     );
   }
   
-  const Stack = createNativeStackNavigator();
+  const Stack = createNativeStackNavigator();  
   
   function DovereApp() {
+   
     return (
 <NewStates>
       <NavigationContainer>

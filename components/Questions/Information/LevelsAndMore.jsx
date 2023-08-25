@@ -27,8 +27,6 @@ const styles=StyleSheet.create({
     },
     boxClose:{
         height:34,
-        borderWidth:1,
-        borderColor:'#ffffff',
         width:'28%',
         borderRadius:5,
         backgroundColor:'#DADD33',
@@ -42,7 +40,7 @@ const styles=StyleSheet.create({
     },
     textClose:{
         fontSize:22,
-        color:'#ffffff',
+        color:'#000000',
     },
     textInfo:{
         fontSize:16
