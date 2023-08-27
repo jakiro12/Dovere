@@ -32,7 +32,8 @@ export default function FormToCreateANewUser(){
                     password: dataTo.passNew,
                   })
                   if (error) setMsgAlert(error.message)
-                  console.log(data)
+                  if(!error) setMsgAlert('Usuario Creado con exito')
+                  textColor.current='#6cef14'
             }else{
                 console.log('error de conexion')
             }
