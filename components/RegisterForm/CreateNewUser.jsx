@@ -64,7 +64,7 @@ export default function FormToCreateANewUser(){
                         style={styles.inptField}
                         value={dataTo.nameNew}
                         onChangeText={(inserting)=>setNewUserValues('nameNew',inserting)}
-                        placeholder="crear usuario"
+                        placeholder="email"
                     ></TextInput>
                     </View>
                     <View style={styles.inputContainer}>

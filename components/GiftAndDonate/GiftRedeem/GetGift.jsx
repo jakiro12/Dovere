@@ -2,13 +2,23 @@ import {Text,TouchableOpacity,View,Modal,Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import DownBar from '../../DownNavBar/NavOptions';
 import styles from './styleGift'
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { useNavigation,useRoute } from '@react-navigation/native';
+import { supabase } from '../../../supabeConn/supabase';
+import AppCounter from '../../Provider/ProviderStatus';
 export default function RedeemPointsForGift(){
     const navigation=useNavigation()
+    const{dataPoints,setNewChanges}=useContext(AppCounter)
     const route=useRoute()
     const{nameProductToRedeem}=route.params;
-    const[showModal,setShowModal]=useState(false)
+    const[showModal,setShowModal]=useState(false) 
+    const verifyIfUserHaveEnoughPoints=async()=>{
+        let calculateNewAmountOfPoints=Number(dataPoints.points - 100) // produce error si quiero calcular el calor nuevo
+        const{error} = await supabase.from('user_score').update({points:19100}).eq('id',1)
+        if(error) return console.log(error)
+        setShowModal(true)
+        setNewChanges(true)
+    }
     return(
         <View  style={styles.container}>
             <View style={styles.navBar}>
@@ -27,7 +37,7 @@ export default function RedeemPointsForGift(){
                         en la tarjeta del colectivo
                     </Text>
                 </View>
-                <TouchableOpacity style={styles.redeemBtnSubmit} onPress={()=>setShowModal(true)}><Text style={styles.textBtn}>Canjear</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.redeemBtnSubmit} onPress={verifyIfUserHaveEnoughPoints}><Text style={styles.textBtn}>Canjear</Text></TouchableOpacity>
             </View>
             <Modal 
                 animationType='slide'

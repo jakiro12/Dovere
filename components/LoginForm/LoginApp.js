@@ -22,13 +22,14 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
     setDataUser({...dataUser,[key]:value})
   }
   const verifyLoginData=async()=>{
-      const {data,error} = await supabase.from('users_data').select(`name_user,pass_user`)
-     let find_U_N=data.filter((e)=> e.name_user === dataUser.userName)
-      if(find_U_N.length > 0 && find_U_N[0].pass_user === dataUser.password){
+      const {data,error} = await supabase.auth.signInWithPassword({
+        email:dataUser.userName,
+        password:dataUser.password,
+      })
+      if(error) setShowAlert(true)
+      if(data.user.aud = "authenticated"){
         setNameUserLogged(dataUser.userName)
-      navigation.navigate('Home_login')
-      }else{
-        setShowAlert(true)
+        navigation.navigate('Home_login')
       }
   }
   const initWithGoogle=async()=>{
