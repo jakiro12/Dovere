@@ -10,14 +10,17 @@ export default function RedeemPointsForGift(){
     const navigation=useNavigation()
     const{dataPoints,setNewChanges}=useContext(AppCounter)
     const route=useRoute()
-    const{nameProductToRedeem}=route.params;
+    const{nameProductToRedeem,discountPoints}=route.params;
     const[showModal,setShowModal]=useState(false) 
     const verifyIfUserHaveEnoughPoints=async()=>{
-        let calculateNewAmountOfPoints=Number(dataPoints.points - 100) // produce error si quiero calcular el calor nuevo
-        const{error} = await supabase.from('user_score').update({points:19100}).eq('id',1)
-        if(error) return console.log(error)
-        setShowModal(true)
-        setNewChanges(true)
+        if(dataPoints[0].points > discountPoints ){
+            const{error} = await supabase.from('user_score').update({points:( dataPoints[0].points- discountPoints)}).eq('id',1)
+            if(error) return console.log(error) // agregar el numero a restar diresctamente entre ()
+            setShowModal(true)
+            setNewChanges(true)
+        }else{
+            console.log('no tienes suficientes puntos')
+        }
     }
     return(
         <View  style={styles.container}>

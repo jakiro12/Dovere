@@ -85,7 +85,7 @@ export default function SeeMyOptions(){
                         <View style={styles.ticketInfo}>
                             <Text> {e.name_product} ({e.quantity_aviable})</Text>
                             <Text>{e.points_request} puntos</Text>
-                            <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift',{nameProductToRedeem:e.name_product})}>
+                            <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift',{nameProductToRedeem:e.name_product,discountPoints:e.points_request})}>
                             <Text>Ver</Text>
                             </TouchableOpacity>
                         </View>
