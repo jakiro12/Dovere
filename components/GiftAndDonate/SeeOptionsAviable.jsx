@@ -15,17 +15,17 @@ export default function SeeMyOptions(){
       const dataGift=[{
         id:1,
         name_product:'pasaje',
-        quantity_aviable:1000,
+        gift_optained:'1000$',
         points_request:100
       },
      { id:2,
       name_product:'recarga',
-      quantity_aviable:1500,
+      gift_optained:'1500$',
       points_request:2000
     },
     { id:3,
         name_product:'LTC',
-        quantity_aviable:1,
+        gift_optained:'1 token',
         points_request:4000
       },
     ]
@@ -83,9 +83,9 @@ export default function SeeMyOptions(){
                             <Image source={require('../imagesDisplayed/ticket.png')} resizeMode='cover' />
                         </View>
                         <View style={styles.ticketInfo}>
-                            <Text> {e.name_product} ({e.quantity_aviable})</Text>
+                            <Text> {e.name_product} ({e.gift_optained})</Text>
                             <Text>{e.points_request} puntos</Text>
-                            <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift',{nameProductToRedeem:e.name_product,discountPoints:e.points_request})}>
+                            <TouchableOpacity style={styles.redeemPoints} onPress={()=>navigation.navigate('Redeem_gift',{nameProductToRedeem:e.name_product,discountPoints:e.points_request,win:e.gift_optained})}>
                             <Text>Ver</Text>
                             </TouchableOpacity>
                         </View>
@@ -96,7 +96,7 @@ export default function SeeMyOptions(){
                     </View>
                     <View style={styles.ticketInfo}>
                         <Text>{e.company_name}</Text>
-                        <Text>$100 ({e.points_redeem})</Text>
+                        <Text>$1000 ({e.points_redeem})</Text>
                         <TouchableOpacity style={styles.redeemPoints}  onPress={()=> navigation.navigate('Give_points',{donateToCompany:e.company_name,discountPoints:e.points_redeem})}>
                         <Text>Ver</Text>
                         </TouchableOpacity>

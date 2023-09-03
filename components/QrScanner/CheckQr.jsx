@@ -5,14 +5,14 @@ import DownBar from '../DownNavBar/NavOptions';
 import { useNavigation,useIsFocused } from '@react-navigation/native';
 import { useContext, useState } from 'react';
 import AppCounter from '../Provider/ProviderStatus';
-
+import { supabase } from '../../supabeConn/supabase';
 export default function OpenQrReader() {
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const navigation = useNavigation()
   const isFocused = useIsFocused()
-  const {setActiveBtn}=useContext(AppCounter)
-  const [scannedData, setScannedData] = useState(null); // State to store scanned data
-  const [scanningEnabled, setScanningEnabled] = useState(true); // State to control scanning
+  const {setActiveBtn,dataPoints}=useContext(AppCounter)
+  const [scannedData, setScannedData] = useState(null); 
+  const [scanningEnabled, setScanningEnabled] = useState(true);
 
   const goToProfileStats=()=>{
     setActiveBtn('none')
@@ -20,12 +20,12 @@ export default function OpenQrReader() {
   }
  
   if (!permission) {
-    // Camera permissions are still loading
+      //en caso de que los permisos esten en carga mostrar esto
     return <View />;
   }
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet
+    // En caso de no otorgar los permisos de la camara, se vera el modal de aqui
     return (
       <View style={styles.containerCameraPermissions}>
         <View style={styles.modalPerCamera}>
@@ -36,11 +36,17 @@ export default function OpenQrReader() {
       </View>
     );
   }
-  const handleBarCodeScanned = ({ type, data }) => {
-    if (scanningEnabled && type === 256) {
+  const handleBarCodeScanned = async ({ type, data }) => {
+    let pointsToAdd=Number(data)
+    if (scanningEnabled && type === 256 && !isNaN(pointsToAdd)) {
       setScanningEnabled(false); // Desahbilita futuros escaneos
       setScannedData(data);
-    console.log(`Tipo de código: ${type}`);
+      if(pointsToAdd > 0){
+        const{error} = await supabase.from('user_score').update({points:( dataPoints[0].points + pointsToAdd)}).eq('id',1)
+        if(error) return console.log(error)
+      }
+    }else{
+      console.log('no es un valor aceptado, solo aceptamos puntos')
     }
   };
   const handleCloseModalScanned=()=>{
@@ -70,7 +76,7 @@ export default function OpenQrReader() {
           <View style={styles.containerModalCameraRedeem}>
           <View style={styles.containerCameraPermissions}>
         <View style={styles.modalPerCamera}>
-        <Text style={{ textAlign: 'center',fontSize:18 }}>{scannedData}</Text>
+        <Text style={{ textAlign: 'center',fontSize:18 }}>Sumaste: {scannedData} puntos!!</Text>
         </View>
       </View>
           </View>

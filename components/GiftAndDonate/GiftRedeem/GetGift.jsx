@@ -11,7 +11,7 @@ export default function RedeemPointsForGift(){
     const navigation=useNavigation()
     const{dataPoints,setNewChanges}=useContext(AppCounter)
     const route=useRoute()
-    const{nameProductToRedeem,discountPoints}=route.params;
+    const{nameProductToRedeem,discountPoints,win}=route.params;
     const[showModal,setShowModal]=useState(false) 
     const[deniedRequest,setDeniedRequest]=useState(false)
     const verifyIfUserHaveEnoughPoints=async()=>{
@@ -39,8 +39,7 @@ export default function RedeemPointsForGift(){
                         <Image resizeMode='contain' style={styles.imageSize} source={require('../../imagesDisplayed/redeemGift.png')}/>
                     </View>
                 <View style={styles.boxInfoGift}>
-                    <Text>Estas a punto de canjear 1000 puntos por un equivalente a $100 
-                        en la tarjeta del colectivo
+                    <Text>Estas a punto de canjear {discountPoints} puntos por un equivalente a {win} en {nameProductToRedeem}
                     </Text>
                 </View>
                 <TouchableOpacity style={styles.redeemBtnSubmit} onPress={verifyIfUserHaveEnoughPoints}><Text style={styles.textBtn}>Canjear</Text></TouchableOpacity>
