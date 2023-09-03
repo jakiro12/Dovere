@@ -6,12 +6,14 @@ import { useState,useContext } from 'react';
 import { useNavigation,useRoute } from '@react-navigation/native';
 import { supabase } from '../../../supabeConn/supabase';
 import AppCounter from '../../Provider/ProviderStatus';
+import YouDonHaveEnoughPoints from '../DeniedModalReq/AlertNotEnoughPoints';
 export default function RedeemPointsForGift(){
     const navigation=useNavigation()
     const{dataPoints,setNewChanges}=useContext(AppCounter)
     const route=useRoute()
     const{nameProductToRedeem,discountPoints}=route.params;
     const[showModal,setShowModal]=useState(false) 
+    const[deniedRequest,setDeniedRequest]=useState(false)
     const verifyIfUserHaveEnoughPoints=async()=>{
         if(dataPoints[0].points > discountPoints ){
             const{error} = await supabase.from('user_score').update({points:( dataPoints[0].points- discountPoints)}).eq('id',1)
@@ -20,6 +22,7 @@ export default function RedeemPointsForGift(){
             setNewChanges(true)
         }else{
             console.log('no tienes suficientes puntos')
+            setDeniedRequest(true)
         }
     }
     return(
@@ -59,6 +62,7 @@ export default function RedeemPointsForGift(){
                     </TouchableOpacity>
                 </View>
             </Modal>
+            <YouDonHaveEnoughPoints allowReq={deniedRequest}/>
             <DownBar/>
         </View>
     )

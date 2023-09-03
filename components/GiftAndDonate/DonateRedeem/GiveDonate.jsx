@@ -1,15 +1,30 @@
 import { View,Text,Image,TouchableOpacity,Modal } from 'react-native';
 import styles from './stylesDonate'
 import DownBar from '../../DownNavBar/NavOptions';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import { useNavigation,useRoute } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome'
-
+import YouDonHaveEnoughPoints from '../DeniedModalReq/AlertNotEnoughPoints';
+import AppCounter from '../../Provider/ProviderStatus';
+import { supabase } from '../../../supabeConn/supabase';
 export default function GiveMyPoints(){
     const navigation=useNavigation()
     const route=useRoute()
+    const{dataPoints,setNewChanges}=useContext(AppCounter)
     const[showModal,setShowModal]=useState(false)
-    const {donateToCompany}=route.params;
+    const[deniedRequest,setDeniedRequest]=useState(false)
+    const {donateToCompany,discountPoints}=route.params;
+    const verifyIfUserHaveEnoughPoints=async()=>{
+        if(dataPoints[0].points > discountPoints ){
+            const{error} = await supabase.from('user_score').update({points:( dataPoints[0].points- discountPoints)}).eq('id',1)
+            if(error) return console.log(error) // agregar el numero a restar diresctamente entre ()
+            setShowModal(true)
+            setNewChanges(true)
+        }else{
+            console.log('no tienes suficientes puntos')
+            setDeniedRequest(true)
+        }
+    }
     return(
         <View style={styles.container}>
            <View style={styles.navBar}>
@@ -27,7 +42,7 @@ export default function GiveMyPoints(){
                     <Text>Estas a punto de donar 1000 ARS a {donateToCompany}
                     </Text>
                 </View>
-                <TouchableOpacity style={styles.redeemBtnSubmit} onPress={()=>setShowModal(true)}><Text style={styles.textBtn}>Donar</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.redeemBtnSubmit} onPress={verifyIfUserHaveEnoughPoints}><Text style={styles.textBtn}>Donar</Text></TouchableOpacity>
             </View>
             <Modal
             visible={showModal}
@@ -46,6 +61,7 @@ export default function GiveMyPoints(){
                     </TouchableOpacity>
                 </View>
             </Modal>
+            <YouDonHaveEnoughPoints allowReq={deniedRequest}/>
             <DownBar/>
         </View>
     )
