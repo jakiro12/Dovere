@@ -10,7 +10,7 @@ export default function OpenQrReader() {
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const navigation = useNavigation()
   const isFocused = useIsFocused()
-  const {setActiveBtn,dataPoints}=useContext(AppCounter)
+  const {setActiveBtn,dataPoints,setNewChanges}=useContext(AppCounter)
   const [scannedData, setScannedData] = useState(null); 
   const [scanningEnabled, setScanningEnabled] = useState(true);
 
@@ -36,17 +36,17 @@ export default function OpenQrReader() {
       </View>
     );
   }
-  const handleBarCodeScanned = async ({ type, data }) => {
-    let pointsToAdd=Number(data)
-    if (scanningEnabled && type === 256 && !isNaN(pointsToAdd)) {
-      setScanningEnabled(false); // Desahbilita futuros escaneos
-      setScannedData(data);
-      if(pointsToAdd > 0){
-        const{error} = await supabase.from('user_score').update({points:( dataPoints[0].points + pointsToAdd)}).eq('id',1)
-        if(error) return console.log(error)
+  const handleBarCodeScanned =  ({ type, data }) => {
+    
+    if (scanningEnabled) {
+      if (type === 256) {
+        setScannedData(data);
+        console.log(`QR Code Data: ${data}`);
+      } else {
+        console.log(`Barcode Type: ${type}`);
+        setScannedData('No es un código QR válido');
       }
-    }else{
-      console.log('no es un valor aceptado, solo aceptamos puntos')
+      setScanningEnabled(false); // Deshabilita futuros escaneos
     }
   };
   const handleCloseModalScanned=()=>{
