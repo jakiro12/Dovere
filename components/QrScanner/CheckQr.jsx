@@ -37,11 +37,17 @@ export default function OpenQrReader() {
     );
   }
   const handleBarCodeScanned =  ({ type, data }) => {
+    let tryValue=Number(data)
     
     if (scanningEnabled) {
       if (type === 256) {
         setScannedData(data);
-        console.log(`QR Code Data: ${data}`);
+      (  async function testeo(){
+          const{error} = await supabase.from('user_score').update({points:( dataPoints[0].points + tryValue)}).eq('id',1)
+          if(error) return console.log(error)
+          setNewChanges(true)
+        })()
+      
       } else {
         console.log(`Barcode Type: ${type}`);
         setScannedData('No es un código QR válido');
