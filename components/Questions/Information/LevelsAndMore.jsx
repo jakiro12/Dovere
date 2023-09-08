@@ -11,9 +11,30 @@ export default function HowToUpgrade(){
                          Cerrar
                 </Text></TouchableOpacity>
         <Text style={styles.textInfo}>
-          la app cuenta con 7 niveles disponibles y cada uno tiene sus ventajas
+          Cuenta con 7 niveles y diferentes beneficios
         </Text>
-      
+        <Text style={styles.textInfo}>
+            Nivel 1: Haber reciclado 100 botellas y 5% extra en puntos totales.
+        </Text>
+        <Text style={styles.textInfo}>
+            Nivel 2: Reciclar 300 botellas y 10% extra en puntos totales.
+        </Text>
+        <Text style={styles.textInfo}>
+            Nivel 3: Reciclar 500 botellas y 15% extra en puntos totales.
+        </Text>
+        <Text style={styles.textInfo}>
+            Nivel 4: Reciclar 800 botellas y 20% extra en puntos totales.
+        </Text>
+        <Text style={styles.textInfo}>
+            Nivel 5: Reciclar 1000 botellas y 25% extra en puntos totales.
+        </Text>
+        <Text style={styles.textInfo}>
+            Nivel 6: Reciclar 1500 botellas y 30% extra en puntos totales.
+        </Text>
+        <Text style={styles.textInfo}>
+            Nivel 7: Reciclar 2500 botellas y 35% extra en puntos totales.
+        </Text>
+       
         </View>
     )
 }
@@ -43,6 +64,8 @@ const styles=StyleSheet.create({
         color:'#000000',
     },
     textInfo:{
-        fontSize:16
+        fontSize:16,
+        height:'10%',
+        width:'95%',
     }
 })

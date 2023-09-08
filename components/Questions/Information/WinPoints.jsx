@@ -11,9 +11,14 @@ export default function HowToWin(){
                          Cerrar
                 </Text></TouchableOpacity>
         <Text style={styles.textInfo}>
-          los puntos dependen de la cantidad de botellas que dejes
+          Los puntos dependen de la cantidad de botellas que dejes y el material de la botella.
         </Text>
-      
+        <Text style={styles.textInfo}>
+            Las botellas de vidrio otorgan un total 30 puntos.
+        </Text>
+        <Text style={styles.textInfo}>
+            Las botellas de plastico otorgan un total 15 puntos sin importan su condicion.
+        </Text>
         </View>
     )
 }
@@ -43,6 +48,8 @@ const styles=StyleSheet.create({
         color:'#000000'
     },
     textInfo:{
-        fontSize:16
+        fontSize:16,
+        height:'15%',
+        width:'95%',
     }
 })

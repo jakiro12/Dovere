@@ -38,7 +38,6 @@ export default function OpenQrReader() {
   }
   const handleBarCodeScanned =  ({ type, data }) => {
     let tryValue=Number(data)
-    
     if (scanningEnabled) {
       if (type === 256) {
         setScannedData(data);
@@ -47,9 +46,7 @@ export default function OpenQrReader() {
           if(error) return console.log(error)
           setNewChanges(true)
         })()
-      
       } else {
-        console.log(`Barcode Type: ${type}`);
         setScannedData('No es un código QR válido');
       }
       setScanningEnabled(false); // Deshabilita futuros escaneos

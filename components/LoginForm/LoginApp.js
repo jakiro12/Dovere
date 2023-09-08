@@ -22,6 +22,10 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
     setDataUser({...dataUser,[key]:value})
   }
   const verifyLoginData=async()=>{
+    if(dataUser.userName.length === 0 || dataUser.password.length === 0) {
+      setShowAlert(true)
+      return
+    } 
       const {data,error} = await supabase.auth.signInWithPassword({
         email:dataUser.userName,
         password:dataUser.password,
@@ -30,6 +34,9 @@ export default function GetIn({navigation}) {  // pasar navegacion en el boton
       if(data.user.aud = "authenticated"){
         setNameUserLogged(dataUser.userName)
         navigation.navigate('Home_login')
+      }else{
+        setShowAlert(true)
+        return
       }
   }
   const initWithGoogle=async()=>{

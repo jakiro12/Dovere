@@ -65,12 +65,12 @@ export default function AksAndAwser(){
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'c' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'c' ? '70%' : '15%'}]}>
                <TouchableOpacity onPress={()=>openAndCloseThird('c')} activeOpacity={1} style={styles.btnText} disabled={openInfo === 'c' ? true : false}>
-               { openInfo === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Niveles disponibles</Text>}
+               { openInfo === 'c' ? <HowToUpgrade/> : <Text  style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Niveles y beneficios</Text>}
                 </TouchableOpacity>
             </View>
             <View style={[styles.boxQuestion,{display:openInfo === 'd' || openInfo === '' ? 'flex' : 'none'},{height:openInfo === 'd' ? '70%' : '15%'}]}>
             <TouchableOpacity onPress={()=>openAndCloseFourth('d')} activeOpacity={1} style={styles.btnText} disabled={openInfo === 'd' ? true : false}>
-            { openInfo === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Cuando llega mi canje</Text>}
+            { openInfo === 'd' ? <WhenCanI/> : <Text  style={{fontSize:24,color:'#ffffff',fontWeight:'bold',}}>Cuando llega mi premio</Text>}
                 </TouchableOpacity>
             </View>
                 <DownBar/>
